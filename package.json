@@ -18,8 +18,8 @@
   "homepage": "https://github.com/SudoDotDog/Sudoo-Exif#readme",
   "dependencies": {},
   "devDependencies": {
-    "@sudoo/io": "^1.6.1",
-    "@sudoo/triforce": "^1.8.2"
+    "@sudoo/io": "^1.7.0",
+    "@sudoo/triforce": "^2.4.1"
   },
   "nyc": {
     "extension": [
