@@ -6,5 +6,5 @@
 
 declare module 'piexifjs' {
 
-    function load(data: string): void;
+    function load(data: string): any;
 }

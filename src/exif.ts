@@ -5,6 +5,8 @@
  */
 
 import * as PiExif from "piexifjs";
+import { ExifData } from "./declare/declare";
+import { parseForwardData } from "./declare/forward";
 import { readBufferFromPath, writeBufferToPath } from "./util";
 
 export class Exif {
@@ -30,7 +32,8 @@ export class Exif {
 
     public read() {
 
-        const exifData = PiExif.load(this._data);
+        const exifData: any = PiExif.load(this._data);
+        const parsed: ExifData = parseForwardData(exifData);
         console.log(exifData);
     }
 
