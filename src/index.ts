@@ -5,3 +5,5 @@
  */
 
 export * from "./declare";
+export * from "./exif";
+

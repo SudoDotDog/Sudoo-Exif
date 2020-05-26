@@ -16,7 +16,9 @@
     "url": "https://github.com/SudoDotDog/Sudoo-Exif/issues"
   },
   "homepage": "https://github.com/SudoDotDog/Sudoo-Exif#readme",
-  "dependencies": {},
+  "dependencies": {
+    "piexifjs": "^1.0.6"
+  },
   "devDependencies": {
     "@sudoo/io": "^1.7.0",
     "@sudoo/triforce": "^2.4.1"

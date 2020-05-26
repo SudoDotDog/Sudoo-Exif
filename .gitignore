@@ -14,6 +14,9 @@ pids
 # Lock
 yarn.lock
 
+# Example
+example.jpg
+
 # Build
 app
 
