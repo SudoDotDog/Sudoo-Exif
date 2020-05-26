@@ -4,6 +4,6 @@
  * @description Index
  */
 
-export * from "./declare";
+export * from "./declare/declare";
 export * from "./exif";
 

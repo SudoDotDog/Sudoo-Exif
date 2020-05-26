@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Exif
+ * @namespace Exif_Declare
  * @description Declare
  */
 

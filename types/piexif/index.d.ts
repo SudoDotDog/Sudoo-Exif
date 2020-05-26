@@ -4,4 +4,7 @@
  * @description PiExif
  */
 
-declare module 'piexifjs';
+declare module 'piexifjs' {
+
+    function load(data: string): void;
+}
