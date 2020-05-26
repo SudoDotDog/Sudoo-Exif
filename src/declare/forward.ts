@@ -4,13 +4,15 @@
  * @description Forward
  */
 
+import { parseExifBuffer } from "../parse/buffer";
+import { parseExifDate } from "../parse/date";
 import { ExifData } from "./declare";
 
 export const parseForwardData = (original: any): ExifData => {
 
     // tslint:disable: no-string-literal
     return {
-        thumbnail: original.thumbnail,
+        thumbnail: parseExifBuffer(original.thumbnail),
 
         // Interoperability
         interoperabilityIndex: original['Interop']['1'],
@@ -24,7 +26,7 @@ export const parseForwardData = (original: any): ExifData => {
         yResolution: original['0th']['283'],
         resolutionUnit: original['0th']['296'],
         software: original['0th']['305'],
-        modifyDate: new Date(original['0th']['306']),
+        modifyDate: parseExifDate(original['0th']['306']),
         yCbCrPositioning: original['0th']['531'],
         artist: original['0th']['315'],
         copyright: original['0th']['33432'],
@@ -52,8 +54,8 @@ export const parseForwardData = (original: any): ExifData => {
         sensitivityType: original['Exif']['34864'],
         recommendedExposureIndex: original['Exif']['34866'],
         exifVersion: original['Exif']['36864'],
-        dateTimeOriginal: new Date(original['Exif']['36867']),
-        createDate: new Date(original['Exif']['36868']),
+        dateTimeOriginal: parseExifDate(original['Exif']['36867']),
+        createDate: parseExifDate(original['Exif']['36868']),
         componentsConfiguration: original['Exif']['37121'],
         shutterSpeedValue: original['Exif']['37377'],
         apertureValue: original['Exif']['37378'],
@@ -62,7 +64,7 @@ export const parseForwardData = (original: any): ExifData => {
         meteringMode: original['Exif']['37383'],
         lightSource: original['Exif']['37385'],
         focalLength: original['Exif']['37386'],
-        markerNode: original['Exif']['37500'],
+        markerNote: parseExifBuffer(original['Exif']['37500']),
         userComment: original['Exif']['37510'],
         subSecTimeOriginal: original['Exif']['37521'],
         subSecTimeDigitized: original['Exif']['37522'],

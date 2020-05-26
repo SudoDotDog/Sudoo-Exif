@@ -6,9 +6,15 @@
 
 import { COLOR_SPACE, COMPRESSION, CONTRAST, CUSTOM_RENDERED, EXPOSURE_MODE, EXPOSURE_PROGRAM, FILE_SOURCE, GAIN_CONTROL, GPS_ALTITUDE_REF, GPS_LATITUDE_REF, GPS_LONGITUDE_REF, INTEROPERABILITY_INDEX, LIGHT_SOURCE, METERING_MODE, ORIENTATION, RESOLUTION_UNIT, SATURATION, SCENE_CAPTURE_TYPE, SCENE_TYPE, SENSITIVITY_TYPE, SHARPNESS, SUBJECT_DISTANCE_RANGE, WHITE_BALANCE, Y_CB_CR_POSITIONING } from "./enum";
 
+export type ExifLocation = [
+    [number, 1],
+    [number, 1],
+    [number, number],
+];
+
 export type ExifData = {
 
-    readonly thumbnail: string;
+    readonly thumbnail: Buffer | null;
 
     // Interoperability
     readonly interoperabilityIndex: INTEROPERABILITY_INDEX; // 1
@@ -22,7 +28,7 @@ export type ExifData = {
     readonly yResolution: [number, 1]; // 283
     readonly resolutionUnit: RESOLUTION_UNIT; // 296
     readonly software: string; // 305
-    readonly modifyDate: Date; // 306
+    readonly modifyDate: Date | null; // 306
     readonly yCbCrPositioning: Y_CB_CR_POSITIONING; // 531
     readonly artist: string; // 315
     readonly copyright: string; // 33432
@@ -36,9 +42,9 @@ export type ExifData = {
     // GPS
     readonly gpsVersionID: number; // GPS-0
     readonly gpsLatitudeRef: GPS_LATITUDE_REF; // GPS-1
-    readonly gpsLatitude: any; // GPS-2
+    readonly gpsLatitude: ExifLocation; // GPS-2
     readonly gpsLongitudeRef: GPS_LONGITUDE_REF; // GPS-3
-    readonly gpsLongitude: any; // GPS-4
+    readonly gpsLongitude: ExifLocation; // GPS-4
     readonly gpsAltitudeRef: GPS_ALTITUDE_REF; // GPS-5
     readonly gpsAltitude: any; // GPS-6
 
@@ -50,8 +56,8 @@ export type ExifData = {
     readonly sensitivityType: SENSITIVITY_TYPE; // 34864
     readonly recommendedExposureIndex: number; // 34866
     readonly exifVersion: string; // 36864
-    readonly dateTimeOriginal: Date; // 36867
-    readonly createDate: Date; // 36868
+    readonly dateTimeOriginal: Date | null; // 36867
+    readonly createDate: Date | null; // 36868
     readonly componentsConfiguration: string; // 37121
     readonly shutterSpeedValue: [number, number]; // 37377
     readonly apertureValue: [number, number]; // 37378
@@ -60,7 +66,7 @@ export type ExifData = {
     readonly meteringMode: METERING_MODE; // 37383
     readonly lightSource: LIGHT_SOURCE; // 37385
     readonly focalLength: [number, 1], // 37386
-    readonly markerNode: string; // 37500
+    readonly markerNote: Buffer | null; // 37500
     readonly userComment: string; // 37510
     readonly subSecTimeOriginal: string; // 37521
     readonly subSecTimeDigitized: string; // 37522

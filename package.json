@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/SudoDotDog/Sudoo-Exif#readme",
   "dependencies": {
+    "@sudoo/geometry": "^1.10.0",
     "piexifjs": "^1.0.6"
   },
   "devDependencies": {
