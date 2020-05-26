@@ -4,8 +4,8 @@
  * @description Exif
  */
 
+import * as PiExif from "piexifjs";
 import { readBufferFromPath, writeBufferToPath } from "./util";
-
 
 export class Exif {
 
@@ -26,6 +26,12 @@ export class Exif {
     private constructor(data: string) {
 
         this._data = data;
+    }
+
+    public read() {
+
+        const exifData = PiExif.load(this._data);
+        console.log(exifData);
     }
 
     public toBuffer(): Buffer {

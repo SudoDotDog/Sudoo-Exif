@@ -3,9 +3,14 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "lib": [
+            "DOM",
             "es2016",
             "es2017",
             "es6"
+        ],
+        "typeRoots": [
+            "../types",
+            "../node_modules/@types",
         ],
         "module": "commonjs",
         "moduleResolution": "node",
