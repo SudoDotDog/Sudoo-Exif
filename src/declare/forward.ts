@@ -65,7 +65,7 @@ export const parseForwardData = (original: any): ExifData => {
         lightSource: original['Exif']['37385'],
         focalLength: original['Exif']['37386'],
         markerNote: parseExifBuffer(original['Exif']['37500']),
-        userComment: original['Exif']['37510'],
+        userComment: parseExifBuffer(original['Exif']['37510']),
         subSecTimeOriginal: original['Exif']['37521'],
         subSecTimeDigitized: original['Exif']['37522'],
         flashpixVersion: original['Exif']['40960'],

@@ -4,13 +4,8 @@
  * @description Declare
  */
 
+import { ExifLocation } from "../parse/location";
 import { COLOR_SPACE, COMPRESSION, CONTRAST, CUSTOM_RENDERED, EXPOSURE_MODE, EXPOSURE_PROGRAM, FILE_SOURCE, GAIN_CONTROL, GPS_ALTITUDE_REF, GPS_LATITUDE_REF, GPS_LONGITUDE_REF, INTEROPERABILITY_INDEX, LIGHT_SOURCE, METERING_MODE, ORIENTATION, RESOLUTION_UNIT, SATURATION, SCENE_CAPTURE_TYPE, SCENE_TYPE, SENSITIVITY_TYPE, SHARPNESS, SUBJECT_DISTANCE_RANGE, WHITE_BALANCE, Y_CB_CR_POSITIONING } from "./enum";
-
-export type ExifLocation = [
-    [number, 1],
-    [number, 1],
-    [number, number],
-];
 
 export type ExifData = {
 
@@ -67,7 +62,7 @@ export type ExifData = {
     readonly lightSource: LIGHT_SOURCE; // 37385
     readonly focalLength: [number, 1], // 37386
     readonly markerNote: Buffer | null; // 37500
-    readonly userComment: string; // 37510
+    readonly userComment: Buffer | null; // 37510
     readonly subSecTimeOriginal: string; // 37521
     readonly subSecTimeDigitized: string; // 37522
     readonly flashpixVersion: string; // 40960

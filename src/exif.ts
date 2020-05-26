@@ -30,11 +30,12 @@ export class Exif {
         this._data = data;
     }
 
-    public read() {
+    public raw(): ExifData {
 
         const exifData: any = PiExif.load(this._data);
         const parsed: ExifData = parseForwardData(exifData);
-        console.log(parsed);
+
+        return parsed;
     }
 
     public toBuffer(): Buffer {
