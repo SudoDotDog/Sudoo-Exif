@@ -10,6 +10,12 @@ export enum RESOLUTION_UNIT {
     CENTIMETERS = 3,
 }
 
+export enum COMPRESSION {
+
+    UNCOMPRESSED = 1,
+    JPEG_COMPRESSION = 6,
+}
+
 export enum EXPOSURE_PROGRAM {
 
     NOT_DEFINED = 0,

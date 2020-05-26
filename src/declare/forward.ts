@@ -24,6 +24,10 @@ export const parseForwardData = (original: any): ExifData => {
         copyright: original['0th']['33432'],
         exifTag: original['0th']['34665'],
 
+        compression: original['1st']['259'],
+        jpegInterchangeFormat: original['1st']['513'],
+        jpegInterchangeFormatLength: original['1st']['514'],
+
         // Exif
         exposureTime: original['Exif']['33434'],
         fNumber: original['Exif']['33437'],

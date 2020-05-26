@@ -4,7 +4,7 @@
  * @description Declare
  */
 
-import { CUSTOM_RENDERED, EXPOSURE_MODE, EXPOSURE_PROGRAM, LIGHT_SOURCE, METERING_MODE, RESOLUTION_UNIT, SCENE_CAPTURE_TYPE, SENSITIVITY_TYPE, WHITE_BALANCE } from "./enum";
+import { COMPRESSION, CUSTOM_RENDERED, EXPOSURE_MODE, EXPOSURE_PROGRAM, LIGHT_SOURCE, METERING_MODE, RESOLUTION_UNIT, SCENE_CAPTURE_TYPE, SENSITIVITY_TYPE, WHITE_BALANCE } from "./enum";
 
 export type ExifData = {
 
@@ -21,6 +21,10 @@ export type ExifData = {
     readonly artist: string;
     readonly copyright: string;
     readonly exifTag: number;
+
+    readonly compression: COMPRESSION;
+    readonly jpegInterchangeFormat?: number;
+    readonly jpegInterchangeFormatLength?: number;
 
     // Exif
     readonly exposureTime: [1, number];
