@@ -4,6 +4,13 @@
  * @description Enum
  */
 
+export enum INTEROPERABILITY_INDEX {
+
+    R98 = "R98",
+    THM = "THM",
+    R03 = "R03",
+}
+
 export enum ORIENTATION {
 
     TOP_LEFT = 1,
@@ -32,6 +39,24 @@ export enum COMPRESSION {
 
     UNCOMPRESSED = 1,
     JPEG_COMPRESSION = 6,
+}
+
+export enum GPS_LATITUDE_REF {
+
+    NORTH = "N",
+    SOUTH = "S",
+}
+
+export enum GPS_LONGITUDE_REF {
+
+    EAST = "E",
+    WEST = "W",
+}
+
+export enum GPS_ALTITUDE_REF {
+
+    SEA_LEVEL = 0,
+    SEA_LEVEL_REFERENCE = 1,
 }
 
 export enum EXPOSURE_PROGRAM {
@@ -97,10 +122,28 @@ export enum LIGHT_SOURCE {
     OTHER_LIGHT_SOURCE = 255,
 }
 
+export enum COLOR_SPACE {
+
+    S_RGB = 1,
+}
+
 export enum CUSTOM_RENDERED {
 
     NORMAL_PROCESS = 0,
     CUSTOM_PROCESS = 1,
+}
+
+export enum FILE_SOURCE {
+
+    OTHERS = 0,
+    SCANNER_OF_TRaNSPARENT_TYPE = 1,
+    SCANNER_OF_REFLEX_TYPE = 2,
+    DSC = 3,
+}
+
+export enum SCENE_TYPE {
+
+    A_DIRECTLY_PHOTOGRAPHED_IMAGE = 1,
 }
 
 export enum EXPOSURE_MODE {
@@ -122,4 +165,42 @@ export enum SCENE_CAPTURE_TYPE {
     LANDSCAPE = 1,
     PORTRAIT = 2,
     NIGHT_SCENE = 3,
+}
+
+export enum GAIN_CONTROL {
+
+    NONE = 0,
+    LOW_GAIN_UP = 1,
+    HIGH_GAIN_UP = 2,
+    LOW_GAIN_DOWN = 3,
+    HIGH_GAIN_DOWN = 4,
+}
+
+export enum CONTRAST {
+
+    NORMAL = 0,
+    SOFT = 1,
+    HARD = 2,
+}
+
+export enum SATURATION {
+
+    NORMAL = 0,
+    LOW_SATURATION = 1,
+    HIGH_SATURATION = 2,
+}
+
+export enum SHARPNESS {
+
+    NORMAL = 0,
+    SOFT = 1,
+    HARD = 2,
+}
+
+export enum SUBJECT_DISTANCE_RANGE {
+
+    UNKNOWN = 0,
+    MACRO = 1,
+    CLOSE_VIEW = 2,
+    DISTANT_VIEW = 3,
 }

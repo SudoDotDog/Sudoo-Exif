@@ -34,7 +34,7 @@ export class Exif {
 
         const exifData: any = PiExif.load(this._data);
         const parsed: ExifData = parseForwardData(exifData);
-        console.log(exifData);
+        console.log(parsed);
     }
 
     public toBuffer(): Buffer {
