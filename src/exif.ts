@@ -4,12 +4,21 @@
  * @description Exif
  */
 
+import { readBufferFromPath, writeBufferToPath } from "./util";
+
+
 export class Exif {
 
     public static fromBuffer(image: Buffer): Exif {
 
         const data: string = image.toString('binary');
         return new Exif(data);
+    }
+
+    public static async fromFile(path: string): Promise<Exif> {
+
+        const result: Buffer = await readBufferFromPath(path);
+        return this.fromBuffer(result);
     }
 
     private _data: string;
@@ -22,6 +31,12 @@ export class Exif {
     public toBuffer(): Buffer {
 
         return Buffer.from(this._data, 'binary');
+    }
+
+    public async toFile(path: string): Promise<void> {
+
+        await writeBufferToPath(path, this.toBuffer());
+        return;
     }
 
     private _updateData(newData: string): this {
