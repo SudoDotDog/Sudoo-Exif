@@ -7,8 +7,8 @@
 import { parseExifBuffer } from "../parse/buffer";
 import { parseExifDate } from "../parse/date";
 import { parseExifLocation } from "../parse/location";
-import { ExifData } from "./declare";
 import { removeObjectUndefined } from "../util";
+import { ExifData } from "./declare";
 
 export const parseForwardData = (original: any): ExifData => {
 

@@ -6,7 +6,7 @@
 
 import { DraftFunction, produce } from "@sudoo/immutable";
 import * as PiExif from "piexifjs";
-import { ExifData } from "./declare/declare";
+import { ExifData, Writeable } from "./declare/declare";
 import { parseForwardData } from "./declare/forward";
 import { reverseExifData } from "./declare/reverse";
 import { readBufferFromPath, writeBufferToPath } from "./util";
@@ -41,7 +41,10 @@ export class Exif {
         return this._imageExif;
     }
 
-    public replace(exifData: ExifData, dump: boolean = false): this {
+    public replace(
+        exifData: ExifData,
+        dump: boolean = false,
+    ): this {
 
         this._imageExif = exifData;
         if (dump) {
@@ -50,7 +53,10 @@ export class Exif {
         return this;
     }
 
-    public merge(exifData: Partial<ExifData>, dump: boolean = false): this {
+    public merge(
+        exifData: Partial<ExifData>,
+        dump: boolean = false,
+    ): this {
 
         return this.replace({
             ...this._imageExif,
@@ -58,12 +64,22 @@ export class Exif {
         }, dump);
     }
 
-    public mutate(draftFunction: DraftFunction<ExifData>, dump: boolean = false): this {
+    public mutate(
+        draftFunction: DraftFunction<Writeable<ExifData>>,
+        dump: boolean = false,
+    ): this {
 
         return this.replace(
             produce(this.data, draftFunction),
             dump,
         );
+    }
+
+    public clear(
+        dump: boolean = false,
+    ): this {
+
+        return this.replace({}, dump);
     }
 
     public dump(): this {
