@@ -4,7 +4,11 @@
  * @description Date
  */
 
-export const formatExifDate = (date: Date): string => {
+export const formatExifDate = (date?: Date): string | undefined => {
+
+    if (typeof date === 'undefined') {
+        return undefined;
+    }
 
     const year: number = date.getUTCFullYear();
     const month: number = date.getUTCMonth();
@@ -17,7 +21,11 @@ export const formatExifDate = (date: Date): string => {
     return `${year}:${month}:${day} ${hour}:${minute}:${second}`;
 };
 
-export const parseExifDate = (time: string): Date | null => {
+export const parseExifDate = (time?: string): Date | null => {
+
+    if (typeof time === 'undefined') {
+        return null;
+    }
 
     const spaceSplited: string[] = time.split(' ');
 

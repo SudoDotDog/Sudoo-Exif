@@ -13,6 +13,18 @@ import { readBufferFromPath, writeBufferToPath } from "./util";
 
 export class Exif {
 
+    public static fromBase64(base64: string): Exif {
+
+        const splited: string[] = base64.split(',');
+        if (splited.length === 2) {
+            const splitedData: Buffer = Buffer.from(splited[1], 'base64');
+            return this.fromBuffer(splitedData);
+        }
+
+        const data: Buffer = Buffer.from(base64, 'base64');
+        return this.fromBuffer(data);
+    }
+
     public static fromBuffer(image: Buffer): Exif {
 
         const data: string = image.toString('binary');
@@ -88,6 +100,11 @@ export class Exif {
         const exifBytes: any = PiExif.dump(exifData);
         this._imageData = PiExif.insert(exifBytes, this._imageData);
         return this;
+    }
+
+    public toBase64(): string {
+
+        return this.toBuffer().toString('base64');
     }
 
     public toBuffer(): Buffer {
