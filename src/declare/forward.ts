@@ -6,6 +6,7 @@
 
 import { parseExifBuffer } from "../parse/buffer";
 import { parseExifDate } from "../parse/date";
+import { parseExifLocation } from "../parse/location";
 import { ExifData } from "./declare";
 
 export const parseForwardData = (original: any): ExifData => {
@@ -39,10 +40,12 @@ export const parseForwardData = (original: any): ExifData => {
 
         // GPS
         gpsVersionID: original['GPS']['0'],
-        gpsLatitudeRef: original['GPS']['1'],
-        gpsLatitude: original['GPS']['2'],
-        gpsLongitudeRef: original['GPS']['3'],
-        gpsLongitude: original['GPS']['4'],
+        gpsLocation: parseExifLocation({
+            gpsLatitudeRef: original['GPS']['1'],
+            gpsLatitude: original['GPS']['2'],
+            gpsLongitudeRef: original['GPS']['3'],
+            gpsLongitude: original['GPS']['4'],
+        }),
         gpsAltitudeRef: original['GPS']['5'],
         gpsAltitude: original['GPS']['6'],
 

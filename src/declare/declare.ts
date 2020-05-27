@@ -4,8 +4,8 @@
  * @description Declare
  */
 
-import { ExifLocation } from "../parse/location";
-import { COLOR_SPACE, COMPRESSION, CONTRAST, CUSTOM_RENDERED, EXPOSURE_MODE, EXPOSURE_PROGRAM, FILE_SOURCE, GAIN_CONTROL, GPS_ALTITUDE_REF, GPS_LATITUDE_REF, GPS_LONGITUDE_REF, INTEROPERABILITY_INDEX, LIGHT_SOURCE, METERING_MODE, ORIENTATION, RESOLUTION_UNIT, SATURATION, SCENE_CAPTURE_TYPE, SCENE_TYPE, SENSITIVITY_TYPE, SHARPNESS, SUBJECT_DISTANCE_RANGE, WHITE_BALANCE, Y_CB_CR_POSITIONING } from "./enum";
+import { Coordinate } from "@sudoo/geometry";
+import { COLOR_SPACE, COMPRESSION, CONTRAST, CUSTOM_RENDERED, EXPOSURE_MODE, EXPOSURE_PROGRAM, FILE_SOURCE, GAIN_CONTROL, GPS_ALTITUDE_REF, INTEROPERABILITY_INDEX, LIGHT_SOURCE, METERING_MODE, ORIENTATION, RESOLUTION_UNIT, SATURATION, SCENE_CAPTURE_TYPE, SCENE_TYPE, SENSITIVITY_TYPE, SHARPNESS, SUBJECT_DISTANCE_RANGE, WHITE_BALANCE, Y_CB_CR_POSITIONING } from "./enum";
 
 export type ExifData = {
 
@@ -36,10 +36,7 @@ export type ExifData = {
 
     // GPS
     readonly gpsVersionID: number; // GPS-0
-    readonly gpsLatitudeRef: GPS_LATITUDE_REF; // GPS-1
-    readonly gpsLatitude: ExifLocation; // GPS-2
-    readonly gpsLongitudeRef: GPS_LONGITUDE_REF; // GPS-3
-    readonly gpsLongitude: ExifLocation; // GPS-4
+    readonly gpsLocation: Coordinate | null; // GPS-1->4
     readonly gpsAltitudeRef: GPS_ALTITUDE_REF; // GPS-5
     readonly gpsAltitude: any; // GPS-6
 
