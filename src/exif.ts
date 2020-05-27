@@ -25,9 +25,13 @@ export class Exif {
 
     private _data: string;
 
+    private _needUpdate: boolean;
+
     private constructor(data: string) {
 
         this._data = data;
+
+        this._needUpdate = false;
     }
 
     public raw(): ExifData {
@@ -52,6 +56,7 @@ export class Exif {
     private _updateData(newData: string): this {
 
         this._data = newData;
+        this._needUpdate = true;
         return this;
     }
 }
