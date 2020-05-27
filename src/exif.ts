@@ -27,16 +27,12 @@ export class Exif {
     private _imageData: string;
     private _imageExif: ExifData;
 
-    private _needUpdate: boolean;
-
     private constructor(data: string) {
 
         this._imageData = data;
 
         const exifData: any = PiExif.load(this._imageData);
         this._imageExif = parseForwardData(exifData);
-
-        this._needUpdate = false;
     }
 
     public exif(): ExifData {
@@ -62,12 +58,5 @@ export class Exif {
 
         await writeBufferToPath(path, this.toBuffer());
         return;
-    }
-
-    private _updateData(newData: string): this {
-
-        this._imageData = newData;
-        this._needUpdate = true;
-        return this;
     }
 }

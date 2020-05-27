@@ -12,7 +12,7 @@ import { ExifData } from "./declare";
 export const parseForwardData = (original: any): ExifData => {
 
     // tslint:disable: no-string-literal
-    return {
+    const data: ExifData = {
         thumbnail: parseExifBuffer(original.thumbnail),
 
         // Interoperability
@@ -98,4 +98,15 @@ export const parseForwardData = (original: any): ExifData => {
         lensSerialNumber: original['Exif']['42037'],
     };
     // tslint:enable: no-string-literal
+
+    return Object.keys(data).reduce((previous: ExifData, key: string) => {
+        const current: any = data[key as any as keyof ExifData];
+        if (Boolean(current)) {
+            return {
+                ...previous,
+                [key]: current,
+            };
+        }
+        return previous;
+    }, {} as ExifData);
 };
