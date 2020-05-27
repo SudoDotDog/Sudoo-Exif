@@ -10,7 +10,7 @@ import { Exif } from "../src/exif";
 (async () => {
 
     const exif: Exif = await Exif.fromFile('./example.jpg');
-    const data: ExifData = exif.raw();
+    const data: ExifData = exif.exif();
 
     console.log(data);
     // await exif.toFile('./out.jpg');

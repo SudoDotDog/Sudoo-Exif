@@ -7,6 +7,7 @@
 import * as PiExif from "piexifjs";
 import { ExifData } from "./declare/declare";
 import { parseForwardData } from "./declare/forward";
+import { reverseExifData } from "./declare/reverse";
 import { readBufferFromPath, writeBufferToPath } from "./util";
 
 export class Exif {
@@ -23,28 +24,38 @@ export class Exif {
         return this.fromBuffer(result);
     }
 
-    private _data: string;
+    private _imageData: string;
+    private _imageExif: ExifData;
 
     private _needUpdate: boolean;
 
     private constructor(data: string) {
 
-        this._data = data;
+        this._imageData = data;
+
+        const exifData: any = PiExif.load(this._imageData);
+        this._imageExif = parseForwardData(exifData);
 
         this._needUpdate = false;
     }
 
-    public raw(): ExifData {
+    public exif(): ExifData {
 
-        const exifData: any = PiExif.load(this._data);
-        const parsed: ExifData = parseForwardData(exifData);
+        return this._imageExif;
+    }
 
-        return parsed;
+    public dump(): this {
+
+        const exifData: any = reverseExifData(this._imageExif);
+        const exifBytes: any = PiExif.dump(exifData);
+
+        this._imageData = PiExif.insert(exifBytes, this._imageData);
+        return this;
     }
 
     public toBuffer(): Buffer {
 
-        return Buffer.from(this._data, 'binary');
+        return Buffer.from(this._imageData, 'binary');
     }
 
     public async toFile(path: string): Promise<void> {
@@ -55,7 +66,7 @@ export class Exif {
 
     private _updateData(newData: string): this {
 
-        this._data = newData;
+        this._imageData = newData;
         this._needUpdate = true;
         return this;
     }

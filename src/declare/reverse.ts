@@ -9,14 +9,16 @@ import { formatExifDate } from "../parse/date";
 import { ExifLocationCombination, formatExifLocation } from "../parse/location";
 import { ExifData } from "./declare";
 
-export const parseForwardData = (data: ExifData): any => {
+export const reverseExifData = (data: ExifData): any => {
 
     const location: Partial<ExifLocationCombination> = data.gpsLocation
         ? formatExifLocation(data.gpsLocation)
         : {};
 
     return {
-        thumbnail: formatExifBuffer(data.thumbnail),
+        thumbnail: data.thumbnail
+            ? formatExifBuffer(data.thumbnail)
+            : undefined,
         Interop: {
             '1': data.interoperabilityIndex,
         },
@@ -60,8 +62,12 @@ export const parseForwardData = (data: ExifData): any => {
             '34864': data.sensitivityType,
             '34866': data.recommendedExposureIndex,
             '36864': data.exifVersion,
-            '36867': formatExifDate(data.dateTimeOriginal),
-            '36868': formatExifDate(data.createDate),
+            '36867': data.dateTimeOriginal
+                ? formatExifDate(data.dateTimeOriginal)
+                : undefined,
+            '36868': data.createDate
+                ? formatExifDate(data.createDate)
+                : undefined,
             '37121': data.componentsConfiguration,
             '37377': data.shutterSpeedValue,
             '37378': data.apertureValue,
@@ -70,8 +76,12 @@ export const parseForwardData = (data: ExifData): any => {
             '37383': data.meteringMode,
             '37385': data.lightSource,
             '37386': data.focalLength,
-            '37500': formatExifBuffer(data.markerNote),
-            '37510': formatExifBuffer(data.userComment),
+            '37500': data.markerNote
+                ? formatExifBuffer(data.markerNote)
+                : undefined,
+            '37510': data.userComment
+                ? formatExifBuffer(data.userComment)
+                : undefined,
             '37521': data.subSecTimeOriginal,
             '37522': data.subSecTimeDigitized,
             '40960': data.flashpixVersion,
