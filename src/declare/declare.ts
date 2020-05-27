@@ -56,8 +56,8 @@ export type ExifData = {
     readonly dateTimeOriginal?: Date | null; // 36867
     readonly createDate?: Date | null; // 36868
     readonly componentsConfiguration?: string; // 37121
-    readonly shutterSpeedValue?: [number, number]; // 37377
-    readonly apertureValue?: [number, number]; // 37378
+    readonly shutterSpeedValue?: number; // 37377
+    readonly apertureValue?: number; // 37378
     readonly exposureCompensation?: number; // 37380
     readonly maxApertureValue?: number; // 37381
     readonly meteringMode?: METERING_MODE; // 37383
@@ -72,15 +72,15 @@ export type ExifData = {
     readonly exifImageWidth?: number; // 40962
     readonly exifImageHeight?: number; // 40963
     readonly interoperabilityIFD?: number; // 40965
-    readonly focalPlaneXResolution?: [number, number]; // 41468
-    readonly focalPlaneYResolution?: [number, number]; // 41487
+    readonly focalPlaneXResolution?: number; // 41486
+    readonly focalPlaneYResolution?: number; // 41487
     readonly focalPlaneResolutionUnit?: RESOLUTION_UNIT; // 41488
     readonly fileSource?: FILE_SOURCE; // 41728
     readonly sceneType?: SCENE_TYPE; // 41729
     readonly customRendered?: CUSTOM_RENDERED; // 41985
     readonly exposureMode?: EXPOSURE_MODE; // 41986
     readonly whiteBalance?: WHITE_BALANCE; // 41987
-    readonly digitalZoomRatio?: [number, number]; // 41988
+    readonly digitalZoomRatio?: number; // 41988
     readonly focalLengthIn35mmFilm?: number; // 41989
     readonly sceneCaptureType?: SCENE_CAPTURE_TYPE; // 41990
     readonly gainControl?: GAIN_CONTROL; // 41991
