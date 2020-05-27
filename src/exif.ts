@@ -4,6 +4,7 @@
  * @description Exif
  */
 
+import { DraftFunction, produce } from "@sudoo/immutable";
 import * as PiExif from "piexifjs";
 import { ExifData } from "./declare/declare";
 import { parseForwardData } from "./declare/forward";
@@ -38,6 +39,31 @@ export class Exif {
     public get data(): ExifData {
 
         return this._imageExif;
+    }
+
+    public replace(exifData: ExifData, dump: boolean = false): this {
+
+        this._imageExif = exifData;
+        if (dump) {
+            return this.dump();
+        }
+        return this;
+    }
+
+    public merge(exifData: Partial<ExifData>, dump: boolean = false): this {
+
+        return this.replace({
+            ...this._imageExif,
+            ...exifData,
+        }, dump);
+    }
+
+    public mutate(draftFunction: DraftFunction<ExifData>, dump: boolean = false): this {
+
+        return this.replace(
+            produce(this.data, draftFunction),
+            dump,
+        );
     }
 
     public dump(): this {
