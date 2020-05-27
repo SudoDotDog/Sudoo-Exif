@@ -35,7 +35,7 @@ export class Exif {
         this._imageExif = parseForwardData(exifData);
     }
 
-    public exif(): ExifData {
+    public get data(): ExifData {
 
         return this._imageExif;
     }
@@ -44,7 +44,6 @@ export class Exif {
 
         const exifData: any = reverseExifData(this._imageExif);
         const exifBytes: any = PiExif.dump(exifData);
-
         this._imageData = PiExif.insert(exifBytes, this._imageData);
         return this;
     }

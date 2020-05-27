@@ -17,7 +17,7 @@ export const formatExifBuffer = (value: Buffer | null): string | undefined => {
 export const parseExifBuffer = (value?: string): Buffer | null => {
 
     if (Boolean(value)) {
-        return Buffer.from(value as string);
+        return Buffer.from(value as string, 'binary');
     }
     return null;
 };
