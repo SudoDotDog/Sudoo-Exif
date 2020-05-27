@@ -8,35 +8,104 @@
 import { Coordinate } from '@sudoo/geometry';
 import { expect } from 'chai';
 import { GPS_LATITUDE_REF, GPS_LONGITUDE_REF } from '../../../src/declare/enum';
-import { ExifLocation, parseExifLocation } from '../../../src/parse/location';
+import { ExifLocation, ExifLocationCombination, formatExifLocation, parseExifLocation } from '../../../src/parse/location';
 
 describe('Given [Location-Parse] Helper Functions', (): void => {
 
-    it('should be able to parse location', (): void => {
+    it('should be able to format location', (): void => {
+
+        const coordinate: Coordinate = {
+            latitude: 43.46708167,
+            longitude: 11.88453833,
+        };
+
+        const formatted: ExifLocationCombination = formatExifLocation(coordinate);
 
         const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.NORTH;
         // tslint:disable-next-line: no-magic-numbers
-        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149399999, 100000000]];
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149401199, 100000000]];
         const gpsLongitudeRef = GPS_LONGITUDE_REF.EAST;
         // tslint:disable-next-line: no-magic-numbers
-        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433799999, 100000000]];
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433798799, 100000000]];
 
-        const parsed: Coordinate | null = parseExifLocation({
+        expect(formatted).to.be.deep.equal({
             gpsLatitude,
             gpsLatitudeRef,
             gpsLongitude,
             gpsLongitudeRef,
         });
+    });
 
-        // tslint:disable-next-line: no-unused-expression
-        expect(parsed).to.be.not.null;
+    it('should be able to format negative latitude location', (): void => {
 
-        const assertParsed: Coordinate = parsed as Coordinate;
+        const coordinate: Coordinate = {
+            latitude: -43.46708167,
+            longitude: 11.88453833,
+        };
 
+        const formatted: ExifLocationCombination = formatExifLocation(coordinate);
+
+        const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.SOUTH;
         // tslint:disable-next-line: no-magic-numbers
-        expect(assertParsed.latitude).to.be.equal(43.4670817);
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149401199, 100000000]];
+        const gpsLongitudeRef = GPS_LONGITUDE_REF.EAST;
         // tslint:disable-next-line: no-magic-numbers
-        expect(assertParsed.longitude).to.be.equal(11.8845383);
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433798799, 100000000]];
+
+        expect(formatted).to.be.deep.equal({
+            gpsLatitude,
+            gpsLatitudeRef,
+            gpsLongitude,
+            gpsLongitudeRef,
+        });
+    });
+
+    it('should be able to format negative longitude location', (): void => {
+
+        const coordinate: Coordinate = {
+            latitude: 43.46708167,
+            longitude: -11.88453833,
+        };
+
+        const formatted: ExifLocationCombination = formatExifLocation(coordinate);
+
+        const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.NORTH;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149401199, 100000000]];
+        const gpsLongitudeRef = GPS_LONGITUDE_REF.WEST;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433798799, 100000000]];
+
+        expect(formatted).to.be.deep.equal({
+            gpsLatitude,
+            gpsLatitudeRef,
+            gpsLongitude,
+            gpsLongitudeRef,
+        });
+    });
+
+    it('should be able to format negative both location', (): void => {
+
+        const coordinate: Coordinate = {
+            latitude: -43.46708167,
+            longitude: -11.88453833,
+        };
+
+        const formatted: ExifLocationCombination = formatExifLocation(coordinate);
+
+        const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.SOUTH;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149401199, 100000000]];
+        const gpsLongitudeRef = GPS_LONGITUDE_REF.WEST;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433798799, 100000000]];
+
+        expect(formatted).to.be.deep.equal({
+            gpsLatitude,
+            gpsLatitudeRef,
+            gpsLongitude,
+            gpsLongitudeRef,
+        });
     });
 
     it('should be able to parse location', (): void => {
@@ -61,8 +130,89 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
         const assertParsed: Coordinate = parsed as Coordinate;
 
         // tslint:disable-next-line: no-magic-numbers
-        expect(assertParsed.latitude).to.be.equal(43.4670817);
+        expect(assertParsed.latitude).to.be.equal(43.46708167);
         // tslint:disable-next-line: no-magic-numbers
-        expect(assertParsed.longitude).to.be.equal(11.8845383);
+        expect(assertParsed.longitude).to.be.equal(11.88453833);
+    });
+
+    it('should be able to parse negative latitude location', (): void => {
+
+        const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.SOUTH;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149399999, 100000000]];
+        const gpsLongitudeRef = GPS_LONGITUDE_REF.EAST;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433799999, 100000000]];
+
+        const parsed: Coordinate | null = parseExifLocation({
+            gpsLatitude,
+            gpsLatitudeRef,
+            gpsLongitude,
+            gpsLongitudeRef,
+        });
+
+        // tslint:disable-next-line: no-unused-expression
+        expect(parsed).to.be.not.null;
+
+        const assertParsed: Coordinate = parsed as Coordinate;
+
+        // tslint:disable-next-line: no-magic-numbers
+        expect(assertParsed.latitude).to.be.equal(-43.46708167);
+        // tslint:disable-next-line: no-magic-numbers
+        expect(assertParsed.longitude).to.be.equal(11.88453833);
+    });
+
+    it('should be able to parse negative longitude location', (): void => {
+
+        const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.NORTH;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149399999, 100000000]];
+        const gpsLongitudeRef = GPS_LONGITUDE_REF.WEST;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433799999, 100000000]];
+
+        const parsed: Coordinate | null = parseExifLocation({
+            gpsLatitude,
+            gpsLatitudeRef,
+            gpsLongitude,
+            gpsLongitudeRef,
+        });
+
+        // tslint:disable-next-line: no-unused-expression
+        expect(parsed).to.be.not.null;
+
+        const assertParsed: Coordinate = parsed as Coordinate;
+
+        // tslint:disable-next-line: no-magic-numbers
+        expect(assertParsed.latitude).to.be.equal(43.46708167);
+        // tslint:disable-next-line: no-magic-numbers
+        expect(assertParsed.longitude).to.be.equal(-11.88453833);
+    });
+
+    it('should be able to parse negative both location', (): void => {
+
+        const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.SOUTH;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149399999, 100000000]];
+        const gpsLongitudeRef = GPS_LONGITUDE_REF.WEST;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433799999, 100000000]];
+
+        const parsed: Coordinate | null = parseExifLocation({
+            gpsLatitude,
+            gpsLatitudeRef,
+            gpsLongitude,
+            gpsLongitudeRef,
+        });
+
+        // tslint:disable-next-line: no-unused-expression
+        expect(parsed).to.be.not.null;
+
+        const assertParsed: Coordinate = parsed as Coordinate;
+
+        // tslint:disable-next-line: no-magic-numbers
+        expect(assertParsed.latitude).to.be.equal(-43.46708167);
+        // tslint:disable-next-line: no-magic-numbers
+        expect(assertParsed.longitude).to.be.equal(-11.88453833);
     });
 });

@@ -6,3 +6,11 @@
 [![downloads](https://img.shields.io/npm/dm/@sudoo/exif.svg)](https://www.npmjs.com/package/@sudoo/exif)
 
 :sparkler: Exif parser
+
+## Install
+
+```sh
+yarn add @sudoo/exif
+# or
+npm install @sudoo/exif
+```
