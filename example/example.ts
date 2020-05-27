@@ -10,7 +10,6 @@ import { Exif } from "../src/exif";
 
     const exif: Exif = await Exif.fromFile('./example.jpg');
 
-    exif.clear();
     exif.merge({
         gpsLocation: {
             latitude: 1,

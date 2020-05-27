@@ -24,8 +24,8 @@ export type ExifData = {
     readonly make?: string; // 271
     readonly model?: string; // 272
     readonly orientation?: ORIENTATION; // 274
-    readonly xResolution?: [number, 1]; // 282
-    readonly yResolution?: [number, 1]; // 283
+    readonly xResolution?: number; // 282
+    readonly yResolution?: number; // 283
     readonly resolutionUnit?: RESOLUTION_UNIT; // 296
     readonly software?: string; // 305
     readonly modifyDate?: Date | null; // 306
@@ -46,8 +46,8 @@ export type ExifData = {
     readonly gpsAltitude?: any; // GPS-6
 
     // Exif
-    readonly exposureTime?: [1, number]; // 33434
-    readonly fNumber?: [number, 1]; // 33437
+    readonly exposureTime?: number; // 33434
+    readonly fNumber?: number; // 33437
     readonly exposureProgram?: EXPOSURE_PROGRAM; // 34850
     readonly iso?: number; // 34855
     readonly sensitivityType?: SENSITIVITY_TYPE; // 34864
@@ -58,11 +58,11 @@ export type ExifData = {
     readonly componentsConfiguration?: string; // 37121
     readonly shutterSpeedValue?: [number, number]; // 37377
     readonly apertureValue?: [number, number]; // 37378
-    readonly exposureCompensation?: [1, number]; // 37380
-    readonly maxApertureValue?: [number, 1]; // 37381
+    readonly exposureCompensation?: number; // 37380
+    readonly maxApertureValue?: number; // 37381
     readonly meteringMode?: METERING_MODE; // 37383
     readonly lightSource?: LIGHT_SOURCE; // 37385
-    readonly focalLength?: [number, 1], // 37386
+    readonly focalLength?: number, // 37386
     readonly markerNote?: Buffer | null; // 37500
     readonly userComment?: Buffer | null; // 37510
     readonly subSecTimeOriginal?: string; // 37521

@@ -7,6 +7,7 @@
 import { formatExifBuffer } from "../parse/buffer";
 import { formatExifDate } from "../parse/date";
 import { ExifLocationCombination, formatExifLocation } from "../parse/location";
+import { formatExifNumeric } from "../parse/numeric";
 import { removeObjectUndefined } from "../util";
 import { ExifData } from "./declare";
 
@@ -28,8 +29,8 @@ export const reverseExifData = (data: ExifData): any => {
             '271': data.make,
             '272': data.model,
             '274': data.orientation,
-            '282': data.xResolution,
-            '283': data.yResolution,
+            '282': formatExifNumeric(data.xResolution),
+            '283': formatExifNumeric(data.yResolution),
             '296': data.resolutionUnit,
             '305': data.software,
             '306': data.modifyDate
@@ -56,8 +57,8 @@ export const reverseExifData = (data: ExifData): any => {
             '6': data.gpsAltitude,
         }),
         Exif: removeObjectUndefined({
-            '33434': data.exposureTime,
-            '33437': data.fNumber,
+            '33434': formatExifNumeric(data.exposureTime),
+            '33437': formatExifNumeric(data.fNumber),
             '34850': data.exposureProgram,
             '34855': data.iso,
             '34864': data.sensitivityType,
@@ -72,11 +73,11 @@ export const reverseExifData = (data: ExifData): any => {
             '37121': data.componentsConfiguration,
             '37377': data.shutterSpeedValue,
             '37378': data.apertureValue,
-            '37380': data.exposureCompensation,
-            '37381': data.maxApertureValue,
+            '37380': formatExifNumeric(data.exposureCompensation),
+            '37381': formatExifNumeric(data.maxApertureValue),
             '37383': data.meteringMode,
             '37385': data.lightSource,
-            '37386': data.focalLength,
+            '37386': formatExifNumeric(data.focalLength),
             '37500': data.markerNote
                 ? formatExifBuffer(data.markerNote)
                 : undefined,

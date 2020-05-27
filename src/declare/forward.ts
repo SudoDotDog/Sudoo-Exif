@@ -7,6 +7,7 @@
 import { parseExifBuffer } from "../parse/buffer";
 import { parseExifDate } from "../parse/date";
 import { parseExifLocation } from "../parse/location";
+import { parseExifNumeric } from "../parse/numeric";
 import { removeObjectUndefined } from "../util";
 import { ExifData } from "./declare";
 
@@ -24,8 +25,8 @@ export const parseForwardData = (original: any): ExifData => {
         make: original['0th']['271'],
         model: original['0th']['272'],
         orientation: original['0th']['274'],
-        xResolution: original['0th']['282'],
-        yResolution: original['0th']['283'],
+        xResolution: parseExifNumeric(original['0th']['282']),
+        yResolution: parseExifNumeric(original['0th']['283']),
         resolutionUnit: original['0th']['296'],
         software: original['0th']['305'],
         modifyDate: parseExifDate(original['0th']['306']),
@@ -51,8 +52,8 @@ export const parseForwardData = (original: any): ExifData => {
         gpsAltitude: original['GPS']['6'],
 
         // Exif
-        exposureTime: original['Exif']['33434'],
-        fNumber: original['Exif']['33437'],
+        exposureTime: parseExifNumeric(original['Exif']['33434']),
+        fNumber: parseExifNumeric(original['Exif']['33437']),
         exposureProgram: original['Exif']['34850'],
         iso: original['Exif']['34855'],
         sensitivityType: original['Exif']['34864'],
@@ -63,11 +64,11 @@ export const parseForwardData = (original: any): ExifData => {
         componentsConfiguration: original['Exif']['37121'],
         shutterSpeedValue: original['Exif']['37377'],
         apertureValue: original['Exif']['37378'],
-        exposureCompensation: original['Exif']['37380'],
-        maxApertureValue: original['Exif']['37381'],
+        exposureCompensation: parseExifNumeric(original['Exif']['37380']),
+        maxApertureValue: parseExifNumeric(original['Exif']['37381']),
         meteringMode: original['Exif']['37383'],
         lightSource: original['Exif']['37385'],
-        focalLength: original['Exif']['37386'],
+        focalLength: parseExifNumeric(original['Exif']['37386']),
         markerNote: parseExifBuffer(original['Exif']['37500']),
         userComment: parseExifBuffer(original['Exif']['37510']),
         subSecTimeOriginal: original['Exif']['37521'],
