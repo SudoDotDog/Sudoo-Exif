@@ -16,11 +16,16 @@
     "url": "https://github.com/SudoDotDog/Sudoo-Exif/issues"
   },
   "homepage": "https://github.com/SudoDotDog/Sudoo-Exif#readme",
+  "peerDependencies": {
+    "@sudoo/geometry": "*",
+    "@sudoo/immutable": "*"
+  },
   "dependencies": {
-    "@sudoo/geometry": "^1.10.0",
     "piexifjs": "^1.0.6"
   },
   "devDependencies": {
+    "@sudoo/geometry": "^1.10.0",
+    "@sudoo/immutable": "^1.2.0",
     "@sudoo/io": "^1.7.0",
     "@sudoo/triforce": "^2.4.1"
   },

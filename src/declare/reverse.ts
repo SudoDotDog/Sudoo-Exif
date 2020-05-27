@@ -7,6 +7,7 @@
 import { formatExifBuffer } from "../parse/buffer";
 import { formatExifDate } from "../parse/date";
 import { ExifLocationCombination, formatExifLocation } from "../parse/location";
+import { removeObjectUndefined } from "../util";
 import { ExifData } from "./declare";
 
 export const reverseExifData = (data: ExifData): any => {
@@ -19,10 +20,10 @@ export const reverseExifData = (data: ExifData): any => {
         thumbnail: data.thumbnail
             ? formatExifBuffer(data.thumbnail)
             : undefined,
-        Interop: {
+        Interop: removeObjectUndefined({
             '1': data.interoperabilityIndex,
-        },
-        '0th': {
+        }),
+        '0th': removeObjectUndefined({
             '270': data.imageDescription,
             '271': data.make,
             '272': data.model,
@@ -39,13 +40,13 @@ export const reverseExifData = (data: ExifData): any => {
             '33432': data.copyright,
             '34665': data.exifTag,
             '34853': data.gpdIFD,
-        },
-        '1st': {
+        }),
+        '1st': removeObjectUndefined({
             '259': data.compression,
             '513': data.jpegInterchangeFormat,
             '514': data.jpegInterchangeFormatLength,
-        },
-        GPS: {
+        }),
+        GPS: removeObjectUndefined({
             '0': data.gpsVersionID,
             '1': location.gpsLatitudeRef,
             '2': location.gpsLatitude,
@@ -53,8 +54,8 @@ export const reverseExifData = (data: ExifData): any => {
             '4': location.gpsLongitude,
             '5': data.gpsAltitudeRef,
             '6': data.gpsAltitude,
-        },
-        Exif: {
+        }),
+        Exif: removeObjectUndefined({
             '33434': data.exposureTime,
             '33437': data.fNumber,
             '34850': data.exposureProgram,
@@ -109,6 +110,6 @@ export const reverseExifData = (data: ExifData): any => {
             '42034': data.lensSpecification,
             '42036': data.lensModel,
             '42037': data.lensSerialNumber,
-        },
+        }),
     };
 };

@@ -8,6 +8,7 @@ import { parseExifBuffer } from "../parse/buffer";
 import { parseExifDate } from "../parse/date";
 import { parseExifLocation } from "../parse/location";
 import { ExifData } from "./declare";
+import { removeObjectUndefined } from "../util";
 
 export const parseForwardData = (original: any): ExifData => {
 
@@ -99,14 +100,5 @@ export const parseForwardData = (original: any): ExifData => {
     };
     // tslint:enable: no-string-literal
 
-    return Object.keys(data).reduce((previous: ExifData, key: string) => {
-        const current: any = data[key as any as keyof ExifData];
-        if (Boolean(current)) {
-            return {
-                ...previous,
-                [key]: current,
-            };
-        }
-        return previous;
-    }, {} as ExifData);
+    return removeObjectUndefined(data);
 };
