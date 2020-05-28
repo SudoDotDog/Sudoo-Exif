@@ -77,6 +77,7 @@ export type ExifData = {
     readonly focalPlaneResolutionUnit?: RESOLUTION_UNIT; // 41488
     readonly fileSource?: FILE_SOURCE; // 41728
     readonly sceneType?: SCENE_TYPE; // 41729
+    readonly cfaPattern?: string; // 41730
     readonly customRendered?: CUSTOM_RENDERED; // 41985
     readonly exposureMode?: EXPOSURE_MODE; // 41986
     readonly whiteBalance?: WHITE_BALANCE; // 41987
@@ -87,9 +88,13 @@ export type ExifData = {
     readonly contrast?: CONTRAST; // 41992
     readonly saturation?: SATURATION; // 41993
     readonly sharpness?: SHARPNESS; // 41994
+    readonly deviceSettingDescription?: string; // 41995
     readonly subjectDistanceRange?: SUBJECT_DISTANCE_RANGE; // 41996
+    readonly imageUniqueID?: string; // 42016
+    readonly cameraOwnerName?: string; // 42032
     readonly serialNumber?: string; // 42033
     readonly lensSpecification?: [any, any, any, any]; // 42034
+    readonly lensMake?: string // 42035
     readonly lensModel?: string; // 42036
     readonly lensSerialNumber?: string; // 42037
 };
