@@ -83,6 +83,7 @@ export type ExifData = {
     readonly focalPlaneXResolution?: number; // 41486
     readonly focalPlaneYResolution?: number; // 41487
     readonly focalPlaneResolutionUnit?: RESOLUTION_UNIT; // 41488
+    readonly exposureIndex?: number; // 41493
     readonly fileSource?: FILE_SOURCE; // 41728
     readonly sceneType?: SCENE_TYPE; // 41729
     readonly cfaPattern?: string; // 41730

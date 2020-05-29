@@ -102,6 +102,7 @@ export const reverseExifData = (data: ExifData): any => {
             '41486': formatExifNumeric(data.focalPlaneXResolution),
             '41487': formatExifNumeric(data.focalPlaneYResolution),
             '41488': data.focalPlaneResolutionUnit,
+            '41493': formatExifNumeric(data.exposureIndex),
             '41728': data.fileSource,
             '41729': data.sceneType,
             '41730': data.cfaPattern,
