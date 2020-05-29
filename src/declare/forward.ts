@@ -56,6 +56,7 @@ export const parseForwardData = (original: any): ExifData => {
         exposureTime: parseExifNumeric(original['Exif']['33434']),
         fNumber: parseExifNumeric(original['Exif']['33437']),
         exposureProgram: original['Exif']['34850'],
+        spectralSensitivity: original['Exif']['34852'],
         iso: original['Exif']['34855'],
         sensitivityType: original['Exif']['34864'],
         recommendedExposureIndex: original['Exif']['34866'],

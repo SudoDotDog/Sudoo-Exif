@@ -61,6 +61,7 @@ export const reverseExifData = (data: ExifData): any => {
             '33434': formatExifNumeric(data.exposureTime),
             '33437': formatExifNumeric(data.fNumber),
             '34850': data.exposureProgram,
+            '34852': data.spectralSensitivity,
             '34855': data.iso,
             '34864': data.sensitivityType,
             '34866': data.recommendedExposureIndex,

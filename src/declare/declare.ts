@@ -50,6 +50,7 @@ export type ExifData = {
     readonly exposureTime?: number; // 33434
     readonly fNumber?: number; // 33437
     readonly exposureProgram?: EXPOSURE_PROGRAM; // 34850
+    readonly spectralSensitivity?: string; // 34852
     readonly iso?: number; // 34855
     readonly sensitivityType?: SENSITIVITY_TYPE; // 34864
     readonly recommendedExposureIndex?: number; // 34866
