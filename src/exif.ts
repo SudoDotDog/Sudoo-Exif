@@ -65,6 +65,17 @@ export class Exif {
         return this;
     }
 
+    public set<T extends keyof ExifData>(
+        key: T,
+        value: ExifData[T],
+        dump: boolean = false,
+    ): this {
+
+        return this.merge({
+            [key]: value,
+        }, dump);
+    }
+
     public merge(
         exifData: Partial<ExifData>,
         dump: boolean = false,
@@ -105,6 +116,14 @@ export class Exif {
     public toBase64(): string {
 
         return this.toBuffer().toString('base64');
+    }
+
+    public toBase64WithType(type: string): string {
+
+        const actualType: string = type === 'jpg' ? 'jpeg' : type;
+
+        const header: string = `image/${actualType};base64,`;
+        return header + this.toBase64();
     }
 
     public toBuffer(): Buffer {
