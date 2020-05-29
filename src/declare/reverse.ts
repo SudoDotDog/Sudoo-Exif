@@ -79,8 +79,9 @@ export const reverseExifData = (data: ExifData): any => {
             '37378': formatExifNumeric(data.apertureValue),
             '37380': formatExifNumeric(data.exposureCompensation),
             '37381': formatExifNumeric(data.maxApertureValue),
+            '37382': formatExifNumeric(data.subjectDistance),
             '37383': data.meteringMode,
-            '37385': data.lightSource,
+            '37384': data.lightSource,
             '37386': formatExifNumeric(data.focalLength),
             '37500': data.markerNote
                 ? formatExifBuffer(data.markerNote)

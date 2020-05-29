@@ -64,8 +64,9 @@ export type ExifData = {
     readonly apertureValue?: number; // 37378
     readonly exposureCompensation?: number; // 37380
     readonly maxApertureValue?: number; // 37381
+    readonly subjectDistance?: number; // 37382
     readonly meteringMode?: METERING_MODE; // 37383
-    readonly lightSource?: LIGHT_SOURCE; // 37385
+    readonly lightSource?: LIGHT_SOURCE; // 37384
     readonly focalLength?: number, // 37386
     readonly markerNote?: Buffer | null; // 37500
     readonly userComment?: Buffer | null; // 37510
