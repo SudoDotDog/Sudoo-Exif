@@ -51,8 +51,10 @@ export type ExifData = {
     readonly fNumber?: number; // 33437
     readonly exposureProgram?: EXPOSURE_PROGRAM; // 34850
     readonly spectralSensitivity?: string; // 34852
-    readonly iso?: number; // 34855
+    readonly photographicSensitivity?: number; // 34855
+    readonly OECF?: number; // 34856
     readonly sensitivityType?: SENSITIVITY_TYPE; // 34864
+    readonly standardOutputSensitivity?: number; // 34865
     readonly recommendedExposureIndex?: number; // 34866
     readonly exifVersion?: string; // 36864
     readonly dateTimeOriginal?: Date | null; // 36867
