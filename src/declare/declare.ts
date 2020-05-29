@@ -27,6 +27,7 @@ export type ExifData = {
     readonly xResolution?: number; // 282
     readonly yResolution?: number; // 283
     readonly resolutionUnit?: RESOLUTION_UNIT; // 296
+    readonly transferFunction?: number;
     readonly software?: string; // 305
     readonly modifyDate?: Date | null; // 306
     readonly yCbCrPositioning?: Y_CB_CR_POSITIONING; // 531

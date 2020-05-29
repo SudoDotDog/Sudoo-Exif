@@ -28,6 +28,7 @@ export const parseForwardData = (original: any): ExifData => {
         xResolution: parseExifNumeric(original['0th']['282']),
         yResolution: parseExifNumeric(original['0th']['283']),
         resolutionUnit: original['0th']['296'],
+        transferFunction: original['0th']['301'],
         software: original['0th']['305'],
         modifyDate: parseExifDate(original['0th']['306']),
         yCbCrPositioning: original['0th']['531'],

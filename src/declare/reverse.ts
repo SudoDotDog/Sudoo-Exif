@@ -32,6 +32,7 @@ export const reverseExifData = (data: ExifData): any => {
             '282': formatExifNumeric(data.xResolution),
             '283': formatExifNumeric(data.yResolution),
             '296': data.resolutionUnit,
+            '301': data.transferFunction,
             '305': data.software,
             '306': data.modifyDate
                 ? formatExifDate(data.modifyDate)
