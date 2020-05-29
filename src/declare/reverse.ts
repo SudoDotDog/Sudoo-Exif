@@ -96,6 +96,7 @@ export const reverseExifData = (data: ExifData): any => {
             '40961': data.colorSpace,
             '40962': data.exifImageWidth,
             '40963': data.exifImageHeight,
+            '40964': data.relatedSoundFile,
             '40965': data.interoperabilityIFD,
             '41486': formatExifNumeric(data.focalPlaneXResolution),
             '41487': formatExifNumeric(data.focalPlaneYResolution),

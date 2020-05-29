@@ -83,6 +83,7 @@ export const parseForwardData = (original: any): ExifData => {
         colorSpace: original['Exif']['40961'],
         exifImageWidth: original['Exif']['40962'],
         exifImageHeight: original['Exif']['40963'],
+        relatedSoundFile: original['Exif']['40964'],
         interoperabilityIFD: original['Exif']['40965'],
         focalPlaneXResolution: parseExifNumeric(original['Exif']['41486']),
         focalPlaneYResolution: parseExifNumeric(original['Exif']['41487']),

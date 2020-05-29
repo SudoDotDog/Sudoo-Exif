@@ -77,6 +77,7 @@ export type ExifData = {
     readonly colorSpace?: COLOR_SPACE; // 40961
     readonly exifImageWidth?: number; // 40962
     readonly exifImageHeight?: number; // 40963
+    readonly relatedSoundFile?: string; // 40964
     readonly interoperabilityIFD?: number; // 40965
     readonly focalPlaneXResolution?: number; // 41486
     readonly focalPlaneYResolution?: number; // 41487
