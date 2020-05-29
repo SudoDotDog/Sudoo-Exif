@@ -90,6 +90,7 @@ export const parseForwardData = (original: any): ExifData => {
         focalPlaneYResolution: parseExifNumeric(original['Exif']['41487']),
         focalPlaneResolutionUnit: original['Exif']['41488'],
         exposureIndex: parseExifNumeric(original['Exif']['41493']),
+        sensingMethod: original['Exif']['41495'],
         fileSource: original['Exif']['41728'],
         sceneType: original['Exif']['41729'],
         cfaPattern: original['Exif']['41730'],
