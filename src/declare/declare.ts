@@ -79,6 +79,7 @@ export type ExifData = {
     readonly exifImageHeight?: number; // 40963
     readonly relatedSoundFile?: string; // 40964
     readonly interoperabilityIFD?: number; // 40965
+    readonly spatialFrequencyResponse?: string; // 41484
     readonly focalPlaneXResolution?: number; // 41486
     readonly focalPlaneYResolution?: number; // 41487
     readonly focalPlaneResolutionUnit?: RESOLUTION_UNIT; // 41488
