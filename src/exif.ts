@@ -31,7 +31,7 @@ export class Exif {
         return new Exif(data);
     }
 
-    public static async fromFile(path: string): Promise<Exif> {
+    public static async loadFromFile(path: string): Promise<Exif> {
 
         const result: Buffer = await readBufferFromPath(path);
         return this.fromBuffer(result);
@@ -131,7 +131,7 @@ export class Exif {
         return Buffer.from(this._imageData, 'binary');
     }
 
-    public async toFile(path: string): Promise<void> {
+    public async saveAsFile(path: string): Promise<void> {
 
         await writeBufferToPath(path, this.toBuffer());
         return;

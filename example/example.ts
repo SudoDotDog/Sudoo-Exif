@@ -8,7 +8,7 @@ import { Exif } from "../src/exif";
 
 (async () => {
 
-    const exif: Exif = await Exif.fromFile('./example.jpg');
+    const exif: Exif = await Exif.loadFromFile('./example.jpg');
 
     exif.merge({
         gpsLocation: {
@@ -17,7 +17,7 @@ import { Exif } from "../src/exif";
         },
     });
     exif.dump();
-    await exif.toFile('./out.jpg');
+    await exif.saveAsFile('./out.jpg');
 
     console.log('finished');
 })();
