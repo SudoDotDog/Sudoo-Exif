@@ -73,6 +73,7 @@ export const parseForwardData = (original: any): ExifData => {
         subjectDistance: parseExifNumeric(original['Exif']['37382']),
         meteringMode: original['Exif']['37383'],
         lightSource: original['Exif']['37384'],
+        flash: original['Exif']['37385'],
         focalLength: parseExifNumeric(original['Exif']['37386']),
         markerNote: parseExifBuffer(original['Exif']['37500']),
         userComment: parseExifBuffer(original['Exif']['37510']),

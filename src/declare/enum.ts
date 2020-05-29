@@ -122,6 +122,12 @@ export enum LIGHT_SOURCE {
     OTHER_LIGHT_SOURCE = 255,
 }
 
+export enum FLASH {
+
+    FLASH_DID_NOT_FIRE = 0,
+    FLASH_FIRED = 1,
+}
+
 export enum COLOR_SPACE {
 
     S_RGB = 1,

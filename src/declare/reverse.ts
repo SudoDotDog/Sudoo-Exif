@@ -82,6 +82,7 @@ export const reverseExifData = (data: ExifData): any => {
             '37382': formatExifNumeric(data.subjectDistance),
             '37383': data.meteringMode,
             '37384': data.lightSource,
+            '37385': data.flash,
             '37386': formatExifNumeric(data.focalLength),
             '37500': data.markerNote
                 ? formatExifBuffer(data.markerNote)
