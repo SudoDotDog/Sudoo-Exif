@@ -7,7 +7,7 @@
 import { formatExifBuffer } from "../parse/buffer";
 import { formatExifDate } from "../parse/date";
 import { ExifLocationCombination, formatExifLocation } from "../parse/location";
-import { formatExifRational } from "../parse/numeric";
+import { formatExifRational } from "../parse/rational";
 import { removeObjectUndefined } from "../util";
 import { ExifData } from "./declare";
 
