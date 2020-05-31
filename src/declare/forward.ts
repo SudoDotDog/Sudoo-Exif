@@ -8,6 +8,7 @@ import { parseExifBuffer } from "../parse/buffer";
 import { parseExifDate } from "../parse/date";
 import { parseExifLocation } from "../parse/location";
 import { parseExifRational } from "../parse/rational";
+import { parseExifSRational } from "../parse/s-rational";
 import { removeObjectUndefined } from "../util";
 import { ExifData } from "./declare";
 
@@ -66,10 +67,10 @@ export const parseForwardData = (original: any): ExifData => {
         dateTimeOriginal: parseExifDate(original['Exif']['36867']),
         createDate: parseExifDate(original['Exif']['36868']),
         componentsConfiguration: original['Exif']['37121'],
-        shutterSpeedValue: parseExifRational(original['Exif']['37377']),
+        shutterSpeedValue: parseExifSRational(original['Exif']['37377']),
         apertureValue: parseExifRational(original['Exif']['37378']),
-        brightnessValue: parseExifRational(original['Exif']['37379']),
-        exposureCompensation: parseExifRational(original['Exif']['37380']),
+        brightnessValue: parseExifSRational(original['Exif']['37379']),
+        exposureCompensation: parseExifSRational(original['Exif']['37380']),
         maxApertureValue: parseExifRational(original['Exif']['37381']),
         subjectDistance: parseExifRational(original['Exif']['37382']),
         meteringMode: original['Exif']['37383'],

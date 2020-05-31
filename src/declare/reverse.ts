@@ -8,6 +8,7 @@ import { formatExifBuffer } from "../parse/buffer";
 import { formatExifDate } from "../parse/date";
 import { ExifLocationCombination, formatExifLocation } from "../parse/location";
 import { formatExifRational } from "../parse/rational";
+import { formatExifSRational } from "../parse/s-rational";
 import { removeObjectUndefined } from "../util";
 import { ExifData } from "./declare";
 
@@ -75,10 +76,10 @@ export const reverseExifData = (data: ExifData): any => {
                 ? formatExifDate(data.createDate)
                 : undefined,
             '37121': data.componentsConfiguration,
-            '37377': formatExifRational(data.shutterSpeedValue),
+            '37377': formatExifSRational(data.shutterSpeedValue),
             '37378': formatExifRational(data.apertureValue),
-            '37379': formatExifRational(data.brightnessValue),
-            '37380': formatExifRational(data.exposureCompensation),
+            '37379': formatExifSRational(data.brightnessValue),
+            '37380': formatExifSRational(data.exposureCompensation),
             '37381': formatExifRational(data.maxApertureValue),
             '37382': formatExifRational(data.subjectDistance),
             '37383': data.meteringMode,
