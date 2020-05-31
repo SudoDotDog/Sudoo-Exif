@@ -7,7 +7,7 @@
 import { parseExifBuffer } from "../parse/buffer";
 import { parseExifDate } from "../parse/date";
 import { parseExifLocation } from "../parse/location";
-import { parseExifNumeric } from "../parse/numeric";
+import { parseExifRational } from "../parse/numeric";
 import { removeObjectUndefined } from "../util";
 import { ExifData } from "./declare";
 
@@ -25,8 +25,8 @@ export const parseForwardData = (original: any): ExifData => {
         make: original['0th']['271'],
         model: original['0th']['272'],
         orientation: original['0th']['274'],
-        xResolution: parseExifNumeric(original['0th']['282']),
-        yResolution: parseExifNumeric(original['0th']['283']),
+        xResolution: parseExifRational(original['0th']['282']),
+        yResolution: parseExifRational(original['0th']['283']),
         resolutionUnit: original['0th']['296'],
         transferFunction: original['0th']['301'],
         software: original['0th']['305'],
@@ -53,8 +53,8 @@ export const parseForwardData = (original: any): ExifData => {
         gpsAltitude: original['GPS']['6'],
 
         // Exif
-        exposureTime: parseExifNumeric(original['Exif']['33434']),
-        fNumber: parseExifNumeric(original['Exif']['33437']),
+        exposureTime: parseExifRational(original['Exif']['33434']),
+        fNumber: parseExifRational(original['Exif']['33437']),
         exposureProgram: original['Exif']['34850'],
         spectralSensitivity: original['Exif']['34852'],
         photographicSensitivity: original['Exif']['34855'],
@@ -66,16 +66,16 @@ export const parseForwardData = (original: any): ExifData => {
         dateTimeOriginal: parseExifDate(original['Exif']['36867']),
         createDate: parseExifDate(original['Exif']['36868']),
         componentsConfiguration: original['Exif']['37121'],
-        shutterSpeedValue: parseExifNumeric(original['Exif']['37377']),
-        apertureValue: parseExifNumeric(original['Exif']['37378']),
-        brightnessValue: parseExifNumeric(original['Exif']['37379']),
-        exposureCompensation: parseExifNumeric(original['Exif']['37380']),
-        maxApertureValue: parseExifNumeric(original['Exif']['37381']),
-        subjectDistance: parseExifNumeric(original['Exif']['37382']),
+        shutterSpeedValue: parseExifRational(original['Exif']['37377']),
+        apertureValue: parseExifRational(original['Exif']['37378']),
+        brightnessValue: parseExifRational(original['Exif']['37379']),
+        exposureCompensation: parseExifRational(original['Exif']['37380']),
+        maxApertureValue: parseExifRational(original['Exif']['37381']),
+        subjectDistance: parseExifRational(original['Exif']['37382']),
         meteringMode: original['Exif']['37383'],
         lightSource: original['Exif']['37384'],
         flash: original['Exif']['37385'],
-        focalLength: parseExifNumeric(original['Exif']['37386']),
+        focalLength: parseExifRational(original['Exif']['37386']),
         markerNote: parseExifBuffer(original['Exif']['37500']),
         userComment: parseExifBuffer(original['Exif']['37510']),
         subSecTimeOriginal: original['Exif']['37521'],
@@ -87,10 +87,10 @@ export const parseForwardData = (original: any): ExifData => {
         relatedSoundFile: original['Exif']['40964'],
         interoperabilityIFD: original['Exif']['40965'],
         spatialFrequencyResponse: original['Exif']['41484'],
-        focalPlaneXResolution: parseExifNumeric(original['Exif']['41486']),
-        focalPlaneYResolution: parseExifNumeric(original['Exif']['41487']),
+        focalPlaneXResolution: parseExifRational(original['Exif']['41486']),
+        focalPlaneYResolution: parseExifRational(original['Exif']['41487']),
         focalPlaneResolutionUnit: original['Exif']['41488'],
-        exposureIndex: parseExifNumeric(original['Exif']['41493']),
+        exposureIndex: parseExifRational(original['Exif']['41493']),
         sensingMethod: original['Exif']['41495'],
         fileSource: original['Exif']['41728'],
         sceneType: original['Exif']['41729'],
@@ -98,7 +98,7 @@ export const parseForwardData = (original: any): ExifData => {
         customRendered: original['Exif']['41985'],
         exposureMode: original['Exif']['41986'],
         whiteBalance: original['Exif']['41987'],
-        digitalZoomRatio: parseExifNumeric(original['Exif']['41988']),
+        digitalZoomRatio: parseExifRational(original['Exif']['41988']),
         focalLengthIn35mmFilm: original['Exif']['41989'],
         sceneCaptureType: original['Exif']['41990'],
         gainControl: original['Exif']['41991'],

@@ -4,7 +4,7 @@
  * @description Numeric
  */
 
-export const formatExifNumeric = (value?: number): [number, number] | undefined => {
+export const formatExifRational = (value?: number): [number, number] | undefined => {
 
     if (typeof value === 'undefined') {
         return undefined;
@@ -20,7 +20,7 @@ export const formatExifNumeric = (value?: number): [number, number] | undefined 
     return [Math.floor(value * 100000000), 100000000];
 };
 
-export const parseExifNumeric = (value?: [number, number]): number | undefined => {
+export const parseExifRational = (value?: [number, number]): number | undefined => {
 
     if (typeof value === 'undefined') {
         return undefined;

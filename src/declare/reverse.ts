@@ -7,7 +7,7 @@
 import { formatExifBuffer } from "../parse/buffer";
 import { formatExifDate } from "../parse/date";
 import { ExifLocationCombination, formatExifLocation } from "../parse/location";
-import { formatExifNumeric } from "../parse/numeric";
+import { formatExifRational } from "../parse/numeric";
 import { removeObjectUndefined } from "../util";
 import { ExifData } from "./declare";
 
@@ -29,8 +29,8 @@ export const reverseExifData = (data: ExifData): any => {
             '271': data.make,
             '272': data.model,
             '274': data.orientation,
-            '282': formatExifNumeric(data.xResolution),
-            '283': formatExifNumeric(data.yResolution),
+            '282': formatExifRational(data.xResolution),
+            '283': formatExifRational(data.yResolution),
             '296': data.resolutionUnit,
             '301': data.transferFunction,
             '305': data.software,
@@ -58,8 +58,8 @@ export const reverseExifData = (data: ExifData): any => {
             '6': data.gpsAltitude,
         }),
         Exif: removeObjectUndefined({
-            '33434': formatExifNumeric(data.exposureTime),
-            '33437': formatExifNumeric(data.fNumber),
+            '33434': formatExifRational(data.exposureTime),
+            '33437': formatExifRational(data.fNumber),
             '34850': data.exposureProgram,
             '34852': data.spectralSensitivity,
             '34855': data.photographicSensitivity,
@@ -75,16 +75,16 @@ export const reverseExifData = (data: ExifData): any => {
                 ? formatExifDate(data.createDate)
                 : undefined,
             '37121': data.componentsConfiguration,
-            '37377': formatExifNumeric(data.shutterSpeedValue),
-            '37378': formatExifNumeric(data.apertureValue),
-            '37379': formatExifNumeric(data.brightnessValue),
-            '37380': formatExifNumeric(data.exposureCompensation),
-            '37381': formatExifNumeric(data.maxApertureValue),
-            '37382': formatExifNumeric(data.subjectDistance),
+            '37377': formatExifRational(data.shutterSpeedValue),
+            '37378': formatExifRational(data.apertureValue),
+            '37379': formatExifRational(data.brightnessValue),
+            '37380': formatExifRational(data.exposureCompensation),
+            '37381': formatExifRational(data.maxApertureValue),
+            '37382': formatExifRational(data.subjectDistance),
             '37383': data.meteringMode,
             '37384': data.lightSource,
             '37385': data.flash,
-            '37386': formatExifNumeric(data.focalLength),
+            '37386': formatExifRational(data.focalLength),
             '37500': data.markerNote
                 ? formatExifBuffer(data.markerNote)
                 : undefined,
@@ -100,10 +100,10 @@ export const reverseExifData = (data: ExifData): any => {
             '40964': data.relatedSoundFile,
             '40965': data.interoperabilityIFD,
             '41484': data.spatialFrequencyResponse,
-            '41486': formatExifNumeric(data.focalPlaneXResolution),
-            '41487': formatExifNumeric(data.focalPlaneYResolution),
+            '41486': formatExifRational(data.focalPlaneXResolution),
+            '41487': formatExifRational(data.focalPlaneYResolution),
             '41488': data.focalPlaneResolutionUnit,
-            '41493': formatExifNumeric(data.exposureIndex),
+            '41493': formatExifRational(data.exposureIndex),
             '41495': data.sensingMethod,
             '41728': data.fileSource,
             '41729': data.sceneType,
@@ -111,7 +111,7 @@ export const reverseExifData = (data: ExifData): any => {
             '41985': data.customRendered,
             '41986': data.exposureMode,
             '41987': data.whiteBalance,
-            '41988': formatExifNumeric(data.digitalZoomRatio),
+            '41988': formatExifRational(data.digitalZoomRatio),
             '41989': data.focalLengthIn35mmFilm,
             '41990': data.sceneCaptureType,
             '41991': data.gainControl,
