@@ -40,12 +40,17 @@ export class Exif {
     private _imageData: string;
     private _imageExif: ExifData;
 
+    private readonly _originalExif: ExifData;
+
     private constructor(data: string) {
 
         this._imageData = data;
 
-        const exifData: any = PiExif.load(this._imageData);
-        this._imageExif = parseForwardData(exifData);
+        const rawData: any = PiExif.load(this._imageData);
+        const exifData: ExifData = parseForwardData(rawData);
+
+        this._imageExif = exifData;
+        this._originalExif = exifData;
     }
 
     public get data(): ExifData {
