@@ -53,8 +53,10 @@ export class Exif {
         this._originalExif = exifData;
     }
 
+    public get original(): ExifData {
+        return this._originalExif;
+    }
     public get data(): ExifData {
-
         return this._imageExif;
     }
 
