@@ -103,6 +103,13 @@ export class Exif {
         );
     }
 
+    public restore(
+        dump: boolean = false,
+    ): this {
+
+        return this.replace(this._originalExif, dump);
+    }
+
     public clear(
         dump: boolean = false,
     ): this {
