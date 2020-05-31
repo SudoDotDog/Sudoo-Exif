@@ -17,6 +17,4 @@ npm install @sudoo/exif
 
 ## Source
 
-Checkout this document for details about Exif format
-
-> <http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf>
+> -   [Exif format](http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf)
