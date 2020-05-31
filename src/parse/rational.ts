@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Exif_Parse
- * @description Numeric
+ * @description Rational
  */
 
 export const formatExifRational = (value?: number): [number, number] | undefined => {
