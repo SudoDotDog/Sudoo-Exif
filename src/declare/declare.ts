@@ -62,6 +62,7 @@ export type ExifData = {
     readonly componentsConfiguration?: string; // 37121
     readonly shutterSpeedValue?: number; // 37377
     readonly apertureValue?: number; // 37378
+    readonly brightnessValue?: number; // 37379
     readonly exposureCompensation?: number; // 37380
     readonly maxApertureValue?: number; // 37381
     readonly subjectDistance?: number; // 37382

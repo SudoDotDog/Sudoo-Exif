@@ -68,6 +68,7 @@ export const parseForwardData = (original: any): ExifData => {
         componentsConfiguration: original['Exif']['37121'],
         shutterSpeedValue: parseExifNumeric(original['Exif']['37377']),
         apertureValue: parseExifNumeric(original['Exif']['37378']),
+        brightnessValue: parseExifNumeric(original['Exif']['37379']),
         exposureCompensation: parseExifNumeric(original['Exif']['37380']),
         maxApertureValue: parseExifNumeric(original['Exif']['37381']),
         subjectDistance: parseExifNumeric(original['Exif']['37382']),
