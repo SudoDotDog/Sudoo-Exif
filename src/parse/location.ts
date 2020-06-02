@@ -22,7 +22,10 @@ export type ExifLocationCombination = {
     readonly gpsLongitude: ExifLocation;
 };
 
-export const formatExifLocation = (coordinate: Coordinate): ExifLocationCombination => {
+export const formatExifLocation = (
+    coordinate: Coordinate,
+    limit: number = 7,
+): ExifLocationCombination => {
 
     const latitudeRef: GPS_LATITUDE_REF = coordinate.latitude >= 0
         ? GPS_LATITUDE_REF.NORTH
@@ -49,8 +52,8 @@ export const formatExifLocation = (coordinate: Coordinate): ExifLocationCombinat
     // tslint:disable-next-line: no-magic-numbers
     const longitudeS: number = (longitudeMDecimal % 1) * 60;
 
-    const formattedLatitudeS: [number, number] = formatExifRational(latitudeS) as [number, number];
-    const formattedLongitudeS: [number, number] = formatExifRational(longitudeS) as [number, number];
+    const formattedLatitudeS: [number, number] = formatExifRational(latitudeS, limit) as [number, number];
+    const formattedLongitudeS: [number, number] = formatExifRational(longitudeS, limit) as [number, number];
 
     return {
         gpsLatitudeRef: latitudeRef,

@@ -23,10 +23,10 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
 
         const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.NORTH;
         // tslint:disable-next-line: no-magic-numbers
-        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149401199, 100000000]];
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [14940119, 10000000]];
         const gpsLongitudeRef = GPS_LONGITUDE_REF.EAST;
         // tslint:disable-next-line: no-magic-numbers
-        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433798799, 100000000]];
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [43379879, 10000000]];
 
         expect(formatted).to.be.deep.equal({
             gpsLatitude,
@@ -47,10 +47,10 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
 
         const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.SOUTH;
         // tslint:disable-next-line: no-magic-numbers
-        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149401199, 100000000]];
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [14940119, 10000000]];
         const gpsLongitudeRef = GPS_LONGITUDE_REF.EAST;
         // tslint:disable-next-line: no-magic-numbers
-        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433798799, 100000000]];
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [43379879, 10000000]];
 
         expect(formatted).to.be.deep.equal({
             gpsLatitude,
@@ -71,10 +71,10 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
 
         const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.NORTH;
         // tslint:disable-next-line: no-magic-numbers
-        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149401199, 100000000]];
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [14940119, 10000000]];
         const gpsLongitudeRef = GPS_LONGITUDE_REF.WEST;
         // tslint:disable-next-line: no-magic-numbers
-        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433798799, 100000000]];
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [43379879, 10000000]];
 
         expect(formatted).to.be.deep.equal({
             gpsLatitude,
@@ -95,10 +95,10 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
 
         const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.SOUTH;
         // tslint:disable-next-line: no-magic-numbers
-        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149401199, 100000000]];
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [14940119, 10000000]];
         const gpsLongitudeRef = GPS_LONGITUDE_REF.WEST;
         // tslint:disable-next-line: no-magic-numbers
-        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433798799, 100000000]];
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [43379879, 10000000]];
 
         expect(formatted).to.be.deep.equal({
             gpsLatitude,
