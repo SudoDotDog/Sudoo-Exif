@@ -12,8 +12,8 @@ import { Exif } from "../src/exif";
 
     exif.merge({
         gpsLocation: {
-            latitude: 1,
-            longitude: 1,
+            latitude: 41.878113,
+            longitude: -70.6,
         },
     });
     exif.dump();
