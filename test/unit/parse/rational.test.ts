@@ -38,4 +38,14 @@ describe('Given [Rational-Parse] Helper Functions', (): void => {
         // tslint:disable-next-line: no-magic-numbers
         expect(formatted).to.be.deep.equal([1205125, 100000]);
     });
+
+    it('should be able to format rational with digits and limit - overflow', (): void => {
+
+        const value: number = 12.051257;
+
+        const formatted: [number, number] | undefined = formatExifRational(value, 5);
+
+        // tslint:disable-next-line: no-magic-numbers
+        expect(formatted).to.be.deep.equal([1205126, 100000]);
+    });
 });
