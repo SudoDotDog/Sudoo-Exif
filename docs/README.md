@@ -18,3 +18,7 @@ npm install @sudoo/exif
 ## Source
 
 -   [Exif format document](http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf)
+
+## Reference
+
+> Built on <https://github.com/hMatoba/piexifjs>
