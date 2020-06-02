@@ -18,4 +18,14 @@ describe('Given [Rational-Parse] Helper Functions', (): void => {
 
         expect(formatted).to.be.deep.equal([10, 1]);
     });
+
+    it('should be able to format rational with digits', (): void => {
+
+        const value: number = 10.05;
+
+        const formatted: [number, number] | undefined = formatExifRational(value);
+
+        // tslint:disable-next-line: no-magic-numbers
+        expect(formatted).to.be.deep.equal([1005, 100]);
+    });
 });

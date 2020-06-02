@@ -4,7 +4,10 @@
  * @description Rational
  */
 
-export const formatExifRational = (value?: number): [number, number] | undefined => {
+export const formatExifRational = (
+    value?: number,
+    limit: number = 8,
+): [number, number] | undefined => {
 
     if (typeof value === 'undefined') {
         return undefined;
@@ -15,6 +18,19 @@ export const formatExifRational = (value?: number): [number, number] | undefined
 
         return [floored, 1];
     }
+
+    const separated: string[] = value.toString().split('.');
+
+    if (separated.length !== 2) {
+        return undefined;
+    }
+
+    const integer: number = Number(separated[0] as string);
+    const decimalString: string = separated[1] as string;
+
+    const digits: number = decimalString.length;
+
+
 
     // tslint:disable-next-line: no-magic-numbers
     return [Math.floor(value * 100000000), 100000000];
