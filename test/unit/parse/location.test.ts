@@ -36,6 +36,54 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
         });
     });
 
+    it('should be able to format location without limit', (): void => {
+
+        const coordinate: Coordinate = {
+            latitude: 43.46708167,
+            longitude: 11.88453833,
+        };
+
+        const formatted: ExifLocationCombination = formatExifLocation(coordinate, 8);
+
+        const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.NORTH;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [149401199, 100000000]];
+        const gpsLongitudeRef = GPS_LONGITUDE_REF.EAST;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433798799, 100000000]];
+
+        expect(formatted).to.be.deep.equal({
+            gpsLatitude,
+            gpsLatitudeRef,
+            gpsLongitude,
+            gpsLongitudeRef,
+        });
+    });
+
+    it('should be able to format location with limit', (): void => {
+
+        const coordinate: Coordinate = {
+            latitude: 43.46708167,
+            longitude: 11.88453833,
+        };
+
+        const formatted: ExifLocationCombination = formatExifLocation(coordinate, 3);
+
+        const gpsLatitudeRef: GPS_LATITUDE_REF = GPS_LATITUDE_REF.NORTH;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLatitude: ExifLocation = [[43, 1], [28, 1], [1494, 1000]];
+        const gpsLongitudeRef = GPS_LONGITUDE_REF.EAST;
+        // tslint:disable-next-line: no-magic-numbers
+        const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [4337, 1000]];
+
+        expect(formatted).to.be.deep.equal({
+            gpsLatitude,
+            gpsLatitudeRef,
+            gpsLongitude,
+            gpsLongitudeRef,
+        });
+    });
+
     it('should be able to format negative latitude location', (): void => {
 
         const coordinate: Coordinate = {
