@@ -9,7 +9,6 @@ import * as PiExif from "piexifjs";
 import { ExifData, Writeable } from "./declare/declare";
 import { parseForwardData } from "./declare/forward";
 import { reverseExifData } from "./declare/reverse";
-import { readBufferFromPath, writeBufferToPath } from "./util";
 
 export class Exif {
 
@@ -29,12 +28,6 @@ export class Exif {
 
         const data: string = image.toString('binary');
         return new Exif(data);
-    }
-
-    public static async loadFromFile(path: string): Promise<Exif> {
-
-        const result: Buffer = await readBufferFromPath(path);
-        return this.fromBuffer(result);
     }
 
     private _imageData: string;
@@ -143,11 +136,5 @@ export class Exif {
     public toBuffer(): Buffer {
 
         return Buffer.from(this._imageData, 'binary');
-    }
-
-    public async saveAsFile(path: string): Promise<void> {
-
-        await writeBufferToPath(path, this.toBuffer());
-        return;
     }
 }
