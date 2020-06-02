@@ -12,22 +12,9 @@ import { reverseExifData } from "./declare/reverse";
 
 export class Exif {
 
-    public static fromBase64(base64: string): Exif {
+    public static fromBinaryString(binaryString: string): Exif {
 
-        const splited: string[] = base64.split(',');
-        if (splited.length === 2) {
-            const splitedData: Buffer = Buffer.from(splited[1], 'base64');
-            return this.fromBuffer(splitedData);
-        }
-
-        const data: Buffer = Buffer.from(base64, 'base64');
-        return this.fromBuffer(data);
-    }
-
-    public static fromBuffer(image: Buffer): Exif {
-
-        const data: string = image.toString('binary');
-        return new Exif(data);
+        return new Exif(binaryString);
     }
 
     private _imageData: string;
@@ -120,21 +107,8 @@ export class Exif {
         return this;
     }
 
-    public toBase64(): string {
+    public toBinaryString(): string {
 
-        return this.toBuffer().toString('base64');
-    }
-
-    public toBase64WithType(type: string): string {
-
-        const actualType: string = type === 'jpg' ? 'jpeg' : type;
-
-        const header: string = `image/${actualType};base64,`;
-        return header + this.toBase64();
-    }
-
-    public toBuffer(): Buffer {
-
-        return Buffer.from(this._imageData, 'binary');
+        return this._imageData;
     }
 }
