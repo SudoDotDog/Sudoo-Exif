@@ -17,12 +17,12 @@ export class Exif {
         return new Exif(binaryString);
     }
 
-    private _imageData: string;
-    private _imageExif: ExifData;
+    protected _imageData: string;
+    protected _imageExif: ExifData;
 
-    private readonly _originalExif: ExifData;
+    protected readonly _originalExif: ExifData;
 
-    private constructor(data: string) {
+    protected constructor(data: string) {
 
         this._imageData = data;
 
