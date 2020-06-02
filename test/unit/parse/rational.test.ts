@@ -14,7 +14,7 @@ describe('Given [Rational-Parse] Helper Functions', (): void => {
 
         const value: number = 10;
 
-        const formatted: [number, number] = formatExifRational(value);
+        const formatted: [number, number] | undefined = formatExifRational(value);
 
         expect(formatted).to.be.deep.equal([10, 1]);
     });
