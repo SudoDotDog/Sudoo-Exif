@@ -29,11 +29,16 @@ export const formatExifRational = (
     const decimalString: string = separated[1] as string;
 
     const digits: number = decimalString.length;
+    const parsedDigits: number = Math.min(limit, digits);
 
+    const rational: number = Number(`1${'0'.repeat(parsedDigits)}`);
 
+    const integerParsed: number = integer * rational;
+    const decimalParsed: number = Number(decimalString.substring(0, parsedDigits)) * rational;
 
-    // tslint:disable-next-line: no-magic-numbers
-    return [Math.floor(value * 100000000), 100000000];
+    const sum: number = integerParsed + decimalParsed;
+
+    return [sum, rational];
 };
 
 export const parseExifRational = (value?: [number, number]): number | undefined => {
