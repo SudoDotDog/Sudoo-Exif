@@ -34,7 +34,7 @@ export const formatExifRational = (
     const rational: number = Number(`1${'0'.repeat(parsedDigits)}`);
 
     const integerParsed: number = integer * rational;
-    const decimalParsed: number = Number(decimalString.substring(0, parsedDigits)) * rational;
+    const decimalParsed: number = Number(`0.${decimalString.substring(0, parsedDigits)}`) * rational;
 
     const sum: number = integerParsed + decimalParsed;
 
