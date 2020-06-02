@@ -29,7 +29,7 @@ describe('Given [Rational-Parse] Helper Functions', (): void => {
         expect(formatted).to.be.deep.equal([1005, 100]);
     });
 
-    it.only('should be able to format rational with digits and limit', (): void => {
+    it('should be able to format rational with digits and limit', (): void => {
 
         const value: number = 12.051252;
 

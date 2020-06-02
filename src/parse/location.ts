@@ -6,6 +6,7 @@
 
 import { Coordinate } from "@sudoo/geometry";
 import { GPS_LATITUDE_REF, GPS_LONGITUDE_REF } from "../declare/enum";
+import { formatExifRational } from "./rational";
 
 export type ExifLocation = [
     [number, number],
@@ -39,22 +40,23 @@ export const formatExifLocation = (coordinate: Coordinate): ExifLocationCombinat
     const latitudeMDecimal: number = (latitude % 1) * 60;
     const latitudeM: number = Math.floor(latitudeMDecimal);
     // tslint:disable-next-line: no-magic-numbers
-    const latitudeS: number = Math.floor((latitudeMDecimal % 1) * 60 * 100000000);
+    const latitudeS: number = (latitudeMDecimal % 1) * 60;
 
     const longitudeD: number = Math.floor(longitude);
     // tslint:disable-next-line: no-magic-numbers
     const longitudeMDecimal: number = (longitude % 1) * 60;
     const longitudeM: number = Math.floor(longitudeMDecimal);
     // tslint:disable-next-line: no-magic-numbers
-    const longitudeS: number = Math.floor((longitudeMDecimal % 1) * 60 * 100000000);
+    const longitudeS: number = (longitudeMDecimal % 1) * 60;
+
+    const formattedLatitudeS: [number, number] = formatExifRational(latitudeS) as [number, number];
+    const formattedLongitudeS: [number, number] = formatExifRational(longitudeS) as [number, number];
 
     return {
         gpsLatitudeRef: latitudeRef,
-        // tslint:disable-next-line: no-magic-numbers
-        gpsLatitude: [[latitudeD, 1], [latitudeM, 1], [latitudeS, 100000000]],
+        gpsLatitude: [[latitudeD, 1], [latitudeM, 1], formattedLatitudeS],
         gpsLongitudeRef: longitudeRef,
-        // tslint:disable-next-line: no-magic-numbers
-        gpsLongitude: [[longitudeD, 1], [longitudeM, 1], [longitudeS, 100000000]],
+        gpsLongitude: [[longitudeD, 1], [longitudeM, 1], formattedLongitudeS],
     };
 };
 
