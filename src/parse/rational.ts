@@ -9,6 +9,9 @@ export const formatExifRational = (
     limit: number = 8,
 ): [number, number] | undefined => {
 
+    // tslint:disable-next-line: no-magic-numbers
+    const actualLimit: number = Math.min(limit, 20);
+
     if (typeof value === 'undefined') {
         return undefined;
     }
@@ -29,12 +32,14 @@ export const formatExifRational = (
     const decimalString: string = separated[1] as string;
 
     const digits: number = decimalString.length;
-    const parsedDigits: number = Math.min(limit, digits);
+    const parsedDigits: number = Math.min(actualLimit, digits);
 
     const rational: number = Number(`1${'0'.repeat(parsedDigits)}`);
 
     const integerParsed: number = integer * rational;
-    const decimalParsed: number = Number(`0.${decimalString.substring(0, parsedDigits)}`) * rational;
+    const doubleTargetValue: number = Number(`0.${decimalString}`);
+
+    const decimalParsed: number = Number(doubleTargetValue.toFixed(actualLimit)) * rational;
 
     const sum: number = integerParsed + decimalParsed;
 
