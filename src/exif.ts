@@ -52,6 +52,12 @@ export class Exif {
         return this;
     }
 
+    public extend<T extends keyof ExifData>(key: T, dump: boolean = false): this {
+
+        const original: ExifData[T] = this._originalExif[key];
+        return this.set(key, original, dump);
+    }
+
     public extendOrSet<T extends keyof ExifData>(
         key: T,
         value: ExifData[T],
