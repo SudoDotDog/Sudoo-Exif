@@ -52,6 +52,24 @@ export class Exif {
         return this;
     }
 
+    public extendOriginal(key: keyof ExifData): this {
+
+        return this.set(key, this.original[key]);
+    }
+
+    public extendsOriginalList(keys: Array<keyof ExifData>): this {
+
+        for (const key of keys) {
+            this.extendOriginal(key);
+        }
+        return this;
+    }
+
+    public extendsOriginals(...keys: Array<keyof ExifData>): this {
+
+        return this.extendsOriginalList(keys);
+    }
+
     public set<T extends keyof ExifData>(
         key: T,
         value: ExifData[T],
