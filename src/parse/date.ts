@@ -21,16 +21,16 @@ export const formatExifDate = (date?: Date): string | undefined => {
     return `${year}:${month}:${day} ${hour}:${minute}:${second}`;
 };
 
-export const parseExifDate = (time?: string): Date | null => {
+export const parseExifDate = (time?: string): Date | undefined => {
 
     if (typeof time === 'undefined') {
-        return null;
+        return undefined;
     }
 
     const spaceSplited: string[] = time.split(' ');
 
     if (spaceSplited.length !== 2) {
-        return null;
+        return undefined;
     }
 
     const spaceFirst: string = spaceSplited[0];
@@ -41,7 +41,7 @@ export const parseExifDate = (time?: string): Date | null => {
 
     if (doubleSplitedFirst.length !== 3
         || doubleSplitedSecond.length !== 3) {
-        return null;
+        return undefined;
     }
 
     const year: number = Number(doubleSplitedFirst[0]);
@@ -54,7 +54,7 @@ export const parseExifDate = (time?: string): Date | null => {
 
     if (!Boolean(year) || !Boolean(month) || !Boolean(day)
         || !Boolean(hour) || !Boolean(minute) || !Boolean(second)) {
-        return null;
+        return undefined;
     }
 
     const date: Date = new Date();

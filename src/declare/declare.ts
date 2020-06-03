@@ -14,7 +14,7 @@ export type Writeable<T> = {
 
 export type ExifData = {
 
-    readonly thumbnail?: Buffer | null;
+    readonly thumbnail?: Buffer;
 
     // Interoperability
     readonly interoperabilityIndex?: INTEROPERABILITY_INDEX; // 1
@@ -29,7 +29,7 @@ export type ExifData = {
     readonly resolutionUnit?: RESOLUTION_UNIT; // 296
     readonly transferFunction?: number;
     readonly software?: string; // 305
-    readonly modifyDate?: Date | null; // 306
+    readonly modifyDate?: Date; // 306
     readonly yCbCrPositioning?: Y_CB_CR_POSITIONING; // 531
     readonly artist?: string; // 315
     readonly copyright?: string; // 33432
@@ -42,7 +42,7 @@ export type ExifData = {
 
     // GPS
     readonly gpsVersionID?: number; // GPS-0
-    readonly gpsLocation?: Coordinate | null; // GPS-1->4
+    readonly gpsLocation?: Coordinate; // GPS-1->4
     readonly gpsAltitudeRef?: GPS_ALTITUDE_REF; // GPS-5
     readonly gpsAltitude?: any; // GPS-6
 
@@ -57,8 +57,8 @@ export type ExifData = {
     readonly standardOutputSensitivity?: number; // 34865
     readonly recommendedExposureIndex?: number; // 34866
     readonly exifVersion?: string; // 36864
-    readonly dateTimeOriginal?: Date | null; // 36867
-    readonly createDate?: Date | null; // 36868
+    readonly dateTimeOriginal?: Date; // 36867
+    readonly createDate?: Date; // 36868
     readonly componentsConfiguration?: string; // 37121
     readonly shutterSpeedValue?: number; // 37377
     readonly apertureValue?: number; // 37378
@@ -70,8 +70,8 @@ export type ExifData = {
     readonly lightSource?: LIGHT_SOURCE; // 37384
     readonly flash?: FLASH; // 37385
     readonly focalLength?: number, // 37386
-    readonly markerNote?: Buffer | null; // 37500
-    readonly userComment?: Buffer | null; // 37510
+    readonly markerNote?: Buffer; // 37500
+    readonly userComment?: Buffer; // 37510
     readonly subSecTimeOriginal?: string; // 37521
     readonly subSecTimeDigitized?: string; // 37522
     readonly flashpixVersion?: string; // 40960

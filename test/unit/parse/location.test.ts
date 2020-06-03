@@ -165,7 +165,7 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
         // tslint:disable-next-line: no-magic-numbers
         const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433799999, 100000000]];
 
-        const parsed: Coordinate | null = parseExifLocation({
+        const parsed: Coordinate | undefined = parseExifLocation({
             gpsLatitude,
             gpsLatitudeRef,
             gpsLongitude,
@@ -173,7 +173,7 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
         });
 
         // tslint:disable-next-line: no-unused-expression
-        expect(parsed).to.be.not.null;
+        expect(parsed).to.be.not.undefined;
 
         const assertParsed: Coordinate = parsed as Coordinate;
 
@@ -192,7 +192,7 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
         // tslint:disable-next-line: no-magic-numbers
         const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433799999, 100000000]];
 
-        const parsed: Coordinate | null = parseExifLocation({
+        const parsed: Coordinate | undefined = parseExifLocation({
             gpsLatitude,
             gpsLatitudeRef,
             gpsLongitude,
@@ -200,7 +200,7 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
         });
 
         // tslint:disable-next-line: no-unused-expression
-        expect(parsed).to.be.not.null;
+        expect(parsed).to.be.not.undefined;
 
         const assertParsed: Coordinate = parsed as Coordinate;
 
@@ -219,7 +219,7 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
         // tslint:disable-next-line: no-magic-numbers
         const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433799999, 100000000]];
 
-        const parsed: Coordinate | null = parseExifLocation({
+        const parsed: Coordinate | undefined = parseExifLocation({
             gpsLatitude,
             gpsLatitudeRef,
             gpsLongitude,
@@ -227,7 +227,7 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
         });
 
         // tslint:disable-next-line: no-unused-expression
-        expect(parsed).to.be.not.null;
+        expect(parsed).to.be.not.undefined;
 
         const assertParsed: Coordinate = parsed as Coordinate;
 
@@ -246,7 +246,7 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
         // tslint:disable-next-line: no-magic-numbers
         const gpsLongitude: ExifLocation = [[11, 1], [53, 1], [433799999, 100000000]];
 
-        const parsed: Coordinate | null = parseExifLocation({
+        const parsed: Coordinate | undefined = parseExifLocation({
             gpsLatitude,
             gpsLatitudeRef,
             gpsLongitude,
@@ -254,7 +254,7 @@ describe('Given [Location-Parse] Helper Functions', (): void => {
         });
 
         // tslint:disable-next-line: no-unused-expression
-        expect(parsed).to.be.not.null;
+        expect(parsed).to.be.not.undefined;
 
         const assertParsed: Coordinate = parsed as Coordinate;
 

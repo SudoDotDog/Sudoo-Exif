@@ -66,13 +66,13 @@ export const formatExifLocation = (
 export const parseExifLocation = (
     location: Partial<ExifLocationCombination>,
     precision: number = 8,
-): Coordinate | null => {
+): Coordinate | undefined => {
 
     if (!location.gpsLatitudeRef
         || !location.gpsLatitude
         || !location.gpsLongitudeRef
         || !location.gpsLongitude) {
-        return null;
+        return undefined;
     }
 
     const latitudeD: number = location.gpsLatitude[0][0] / location.gpsLatitude[0][1];
