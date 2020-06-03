@@ -52,22 +52,39 @@ export class Exif {
         return this;
     }
 
-    public extendOriginal(key: keyof ExifData): this {
+    public extendOrSet<T extends keyof ExifData>(
+        key: T,
+        value: ExifData[T],
+        dump: boolean = false,
+    ): this {
 
-        return this.set(key, this.original[key]);
-    }
+        const original: ExifData[T] | undefined = this._originalExif[key];
 
-    public extendsOriginalList(keys: Array<keyof ExifData>): this {
+        if (typeof original !== 'undefined') {
 
-        for (const key of keys) {
-            this.extendOriginal(key);
+            return this.set(key, original, dump);
         }
-        return this;
+        return this.set(key, value, dump);
     }
 
-    public extendsOriginals(...keys: Array<keyof ExifData>): this {
+    public extendOrSetIfExists<T extends keyof ExifData>(
+        key: T,
+        value?: ExifData[T],
+        dump: boolean = false,
+    ): this {
 
-        return this.extendsOriginalList(keys);
+        const original: ExifData[T] | undefined = this._originalExif[key];
+
+        if (typeof original !== 'undefined') {
+
+            return this.set(key, original, dump);
+        }
+
+        if (typeof value === 'undefined') {
+            return this;
+        }
+
+        return this.set(key, value, dump);
     }
 
     public set<T extends keyof ExifData>(
@@ -75,6 +92,21 @@ export class Exif {
         value: ExifData[T],
         dump: boolean = false,
     ): this {
+
+        return this.merge({
+            [key]: value,
+        }, dump);
+    }
+
+    public setIfExists<T extends keyof ExifData>(
+        key: T,
+        value?: ExifData[T],
+        dump: boolean = false,
+    ): this {
+
+        if (typeof value === 'undefined') {
+            return this;
+        }
 
         return this.merge({
             [key]: value,
