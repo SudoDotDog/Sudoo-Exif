@@ -7,11 +7,15 @@ tsc := node_modules/.bin/tsc
 ts_node := node_modules/.bin/ts-node
 mocha := node_modules/.bin/mocha
 
-.IGNORE: clean-linux
+main: dev
 
 dev:
 	@echo "[INFO] Building for development"
 	@NODE_ENV=development $(tsc) --p $(dev)
+
+run-example:
+	@echo "[INFO] Running Example"
+	@NODE_ENV=development $(ts_node) --project $(dev) example/example.ts
 
 build:
 	@echo "[INFO] Building for production"
@@ -38,15 +42,9 @@ license: clean
 	@echo "[INFO] Sign files"
 	@NODE_ENV=development $(ts_node) script/license.ts
 
-clean: clean-linux
+clean:
 	@echo "[INFO] Cleaning release files"
 	@NODE_ENV=development $(ts_node) script/clean-app.ts
-
-clean-linux:
-	@echo "[INFO] Cleaning dist files"
-	@rm -rf dist
-	@rm -rf .nyc_output
-	@rm -rf coverage
 
 publish: install tests license build
 	@echo "[INFO] Publishing package"
