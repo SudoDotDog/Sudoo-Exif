@@ -4,19 +4,22 @@
  * @description Date
  */
 
+import { padZero } from "../util";
+
 export const formatExifDate = (date?: Date): string | undefined => {
 
     if (typeof date === 'undefined') {
         return undefined;
     }
 
-    const year: number = date.getUTCFullYear();
-    const month: number = date.getUTCMonth();
-    const day: number = date.getUTCDate();
+    const year: string = padZero(date.getUTCFullYear(), 4);
+    // tslint:disable-next-line: no-magic-numbers
+    const month: string = padZero(Math.min(12, date.getUTCMonth() + 1), 2);
+    const day: string = padZero(date.getUTCDate(), 2);
 
-    const hour: number = date.getUTCHours();
-    const minute: number = date.getUTCMinutes();
-    const second: number = date.getUTCSeconds();
+    const hour: string = padZero(date.getUTCHours(), 2);
+    const minute: string = padZero(date.getUTCMinutes(), 2);
+    const second: string = padZero(date.getUTCSeconds(), 2);
 
     return `${year}:${month}:${day} ${hour}:${minute}:${second}`;
 };
@@ -59,7 +62,7 @@ export const parseExifDate = (time?: string): Date | undefined => {
 
     const date: Date = new Date();
     date.setUTCFullYear(year);
-    date.setUTCMonth(month);
+    date.setUTCMonth(Math.max(0, month - 1));
     date.setUTCDate(day);
     date.setUTCHours(hour);
     date.setUTCMinutes(minute);
