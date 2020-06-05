@@ -12,7 +12,7 @@ export const formatExifRational = (
     // tslint:disable-next-line: no-magic-numbers
     const actualLimit: number = Math.min(limit, 20);
 
-    if (typeof value === 'undefined') {
+    if (typeof value === 'undefined' || value === null) {
         return undefined;
     }
 
@@ -48,7 +48,7 @@ export const formatExifRational = (
 
 export const parseExifRational = (value?: [number, number]): number | undefined => {
 
-    if (typeof value === 'undefined') {
+    if (typeof value === 'undefined' || value === null) {
         return undefined;
     }
 

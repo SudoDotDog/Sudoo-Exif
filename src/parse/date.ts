@@ -23,7 +23,7 @@ export const formatExifDate = (date?: Date): string | undefined => {
 
 export const parseExifDate = (time?: string): Date | undefined => {
 
-    if (typeof time === 'undefined') {
+    if (typeof time === 'undefined' || time === null) {
         return undefined;
     }
 
