@@ -10,9 +10,11 @@
 ## Install
 
 ```sh
-yarn add @sudoo/exif
+yarn add @sudoo/exif 
+yarn add @sudoo/geometry @sudoo/immutable # As peer dependencies
 # or
-npm install @sudoo/exif
+npm install @sudoo/exif --save
+npm install @sudoo/geometry @sudoo/immutable --save # As peer dependencies
 ```
 
 ## Source
