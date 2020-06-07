@@ -4,7 +4,7 @@
  * @description Location
  */
 
-import { Coordinate } from "@sudoo/geometry";
+import type { Coordinate } from "@sudoo/geometry";
 import { GPS_LATITUDE_REF, GPS_LONGITUDE_REF } from "../declare/enum";
 import { formatExifRational } from "./rational";
 
