@@ -17,6 +17,20 @@ npm install @sudoo/exif --save
 npm install @sudoo/geometry @sudoo/immutable --save # As peer dependencies
 ```
 
+## Example
+
+```ts
+import { Exif } from "../src/exif";
+(async () => {
+    const file: Buffer = await readBufferFile('./example.jpg');
+    const exif: Exif = Exif.fromBinaryString(file.toString('binary'));
+
+    exif.clear();
+    exif.dump();
+    await writeBufferFile('./out.jpg', Buffer.from(exif.toBinaryString(), 'binary'));
+})();
+```
+
 ## Source
 
 -   [Exif format document](http://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf)
