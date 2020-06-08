@@ -12,9 +12,22 @@ import { reverseExifData } from "./declare/reverse";
 
 export class Exif {
 
+    public static attemptFromBinaryString(binaryString: string): Exif | null {
+
+        try {
+            return this.fromBinaryString(binaryString);
+        } catch (err) {
+            return null;
+        }
+    }
+
     public static fromBinaryString(binaryString: string): Exif {
 
-        return new Exif(binaryString);
+        try {
+            return new Exif(binaryString);
+        } catch (err) {
+            throw new Error('[Sudoo-Exif] Invalid Image Data');
+        }
     }
 
     protected _imageData: string;

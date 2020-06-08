@@ -9,7 +9,7 @@ import { Exif } from "../src/exif";
 
 (async () => {
 
-    const file: Buffer = await readBufferFile('./example.jpg');
+    const file: Buffer = await readBufferFile('./example.webp');
     const exif: Exif = Exif.fromBinaryString(file.toString('binary'));
 
     exif.clear();

@@ -12,7 +12,8 @@
         "mimetype",
         "piexifjs",
         "triforce",
-        "tshook"
+        "tshook",
+        "webp"
     ],
     "tslint.configFile": "typescript/tslint.json",
     "files.eol": "\n"
