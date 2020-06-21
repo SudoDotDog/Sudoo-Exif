@@ -2,7 +2,6 @@
   "name": "@sudoo/exif",
   "version": "2.4.3",
   "description": ":sparkler: Exif parser",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SudoDotDog/Sudoo-Exif.git"
@@ -42,9 +41,6 @@
       "text-summary"
     ],
     "report-dir": "coverage",
-    "require": [
-      "./test/tshook.js"
-    ],
     "sourceMap": true
   }
 }
