@@ -25,7 +25,7 @@ describe('Given [Rational-Parse] Helper Functions', (): void => {
 
         const formatted: [number, number] | undefined = formatExifRational(value);
 
-        // tslint:disable-next-line: no-magic-numbers
+        // eslint-disable-next-line @typescript-eslint/no-magic-numbers
         expect(formatted).to.be.deep.equal([1005, 100]);
     });
 
@@ -35,7 +35,7 @@ describe('Given [Rational-Parse] Helper Functions', (): void => {
 
         const formatted: [number, number] | undefined = formatExifRational(value, 5);
 
-        // tslint:disable-next-line: no-magic-numbers
+        // eslint-disable-next-line @typescript-eslint/no-magic-numbers
         expect(formatted).to.be.deep.equal([1205125, 100000]);
     });
 
@@ -45,7 +45,7 @@ describe('Given [Rational-Parse] Helper Functions', (): void => {
 
         const formatted: [number, number] | undefined = formatExifRational(value, 5);
 
-        // tslint:disable-next-line: no-magic-numbers
+        // eslint-disable-next-line @typescript-eslint/no-magic-numbers
         expect(formatted).to.be.deep.equal([1205126, 100000]);
     });
 });

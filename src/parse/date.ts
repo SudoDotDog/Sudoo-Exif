@@ -13,7 +13,7 @@ export const formatExifDate = (date?: Date): string | undefined => {
     }
 
     const year: string = padZero(date.getUTCFullYear(), 4);
-    // tslint:disable-next-line: no-magic-numbers
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const month: string = padZero(Math.min(12, date.getUTCMonth() + 1), 2);
     const day: string = padZero(date.getUTCDate(), 2);
 

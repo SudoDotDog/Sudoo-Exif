@@ -39,17 +39,17 @@ export const formatExifLocation = (
     const longitude: number = Math.abs(coordinate.longitude);
 
     const latitudeD: number = Math.floor(latitude);
-    // tslint:disable-next-line: no-magic-numbers
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const latitudeMDecimal: number = (latitude % 1) * 60;
     const latitudeM: number = Math.floor(latitudeMDecimal);
-    // tslint:disable-next-line: no-magic-numbers
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const latitudeS: number = (latitudeMDecimal % 1) * 60;
 
     const longitudeD: number = Math.floor(longitude);
-    // tslint:disable-next-line: no-magic-numbers
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const longitudeMDecimal: number = (longitude % 1) * 60;
     const longitudeM: number = Math.floor(longitudeMDecimal);
-    // tslint:disable-next-line: no-magic-numbers
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const longitudeS: number = (longitudeMDecimal % 1) * 60;
 
     const formattedLatitudeS: [number, number] = formatExifRational(latitudeS, limit) as [number, number];
@@ -83,9 +83,9 @@ export const parseExifLocation = (
     const longitudeM: number = location.gpsLongitude[1][0] / location.gpsLongitude[1][1];
     const longitudeS: number = location.gpsLongitude[2][0] / location.gpsLongitude[2][1];
 
-    // tslint:disable-next-line: no-magic-numbers
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const latitude: number = latitudeD + (latitudeM / 60) + (latitudeS / 3600);
-    // tslint:disable-next-line: no-magic-numbers
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const longitude: number = longitudeD + (longitudeM / 60) + (longitudeS / 3600);
 
     const fixedLatitude: number = Number(latitude.toFixed(precision));

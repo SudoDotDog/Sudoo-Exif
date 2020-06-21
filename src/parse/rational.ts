@@ -9,7 +9,7 @@ export const formatExifRational = (
     limit: number = 8,
 ): [number, number] | undefined => {
 
-    // tslint:disable-next-line: no-magic-numbers
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     const actualLimit: number = Math.min(limit, 20);
 
     if (typeof value === 'undefined' || value === null) {
@@ -28,8 +28,8 @@ export const formatExifRational = (
         return undefined;
     }
 
-    const integer: number = Number(separated[0] as string);
-    const decimalString: string = separated[1] as string;
+    const integer: number = Number(separated[0]);
+    const decimalString: string = separated[1];
 
     const digits: number = decimalString.length;
     const parsedDigits: number = Math.min(actualLimit, digits);

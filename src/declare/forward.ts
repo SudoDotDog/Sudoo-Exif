@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 /**
  * @author WMXPY
  * @namespace Exif_Declare
