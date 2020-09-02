@@ -102,7 +102,7 @@ export enum LIGHT_SOURCE {
     DAYLIGHT = 1,
     FLUORESCENT = 2,
     TUNGSTEN = 3,
-    // eslint-disable-next-line no-shadow
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     FLASH = 4,
     FINE_WEATHER = 9,
     CLOUDY_WEATHER = 10,

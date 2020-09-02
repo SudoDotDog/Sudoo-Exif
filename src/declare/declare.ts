@@ -69,7 +69,7 @@ export type ExifData = {
     readonly meteringMode?: METERING_MODE; // 37383
     readonly lightSource?: LIGHT_SOURCE; // 37384
     readonly flash?: FLASH; // 37385
-    readonly focalLength?: number, // 37386
+    readonly focalLength?: number; // 37386
     readonly markerNote?: Buffer; // 37500
     readonly userComment?: Buffer; // 37510
     readonly subSecTimeOriginal?: string; // 37521
@@ -105,7 +105,7 @@ export type ExifData = {
     readonly cameraOwnerName?: string; // 42032
     readonly serialNumber?: string; // 42033
     readonly lensSpecification?: [any, any, any, any]; // 42034
-    readonly lensMake?: string // 42035
+    readonly lensMake?: string; // 42035
     readonly lensModel?: string; // 42036
     readonly lensSerialNumber?: string; // 42037
 };
