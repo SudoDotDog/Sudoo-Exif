@@ -20,16 +20,13 @@ npm install @sudoo/geometry @sudoo/immutable --save # As peer dependencies
 ## Example
 
 ```ts
-import { Exif } from "../src/exif";
-(async () => {
-    const file: Buffer = await readBufferFile('./example.jpg');
-    const exif: Exif = Exif.fromBinaryString(file.toString('binary'));
-
-    exif.clear();
-    exif.dump();
-    await writeBufferFile('./out.jpg', Buffer.from(exif.toBinaryString(), 'binary'));
-})();
+import { Exif } from "exif";
+const exif: Exif = Exif.fromBinaryString("<Exif Binary String>");
 ```
+
+This package only contains pure functions.
+
+For NodeJS usage, visit [Sudoo-Exif-Node](//exif-node.sudo.dog) for more details.
 
 ## Source
 
