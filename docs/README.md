@@ -26,7 +26,7 @@ const exif: Exif = Exif.fromBinaryString("<Exif Binary String>");
 
 This package only contains pure functions.
 
-For NodeJS usage, visit [Sudoo-Exif-Node](//exif-node.sudo.dog) for more details.
+For NodeJS file system API and usage, visit [Sudoo-Exif-Node](//exif-node.sudo.dog) for more details.
 
 ## Source
 
