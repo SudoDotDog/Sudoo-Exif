@@ -1,7 +1,7 @@
 {
   "name": "@sudoo/exif",
   "version": "2.4.3",
-  "description": ":sparkler: Exif parser",
+  "description": "Exif parser",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SudoDotDog/Sudoo-Exif.git"
